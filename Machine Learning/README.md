@@ -9,12 +9,12 @@
 
 ## Forking and Cloning Your Local Model to GCP
 ### Forking Our Repository
-1. Fork the repository.
-![Fork Screenshot](assets/fork-screenshot.jpg)
+1. Fork the repository. <br/>
+<img src="assets/fork-screenshot.jpg"  width="60%" height="30%">
 
 ### Cloning Your Forked Repository
-1. Clone the repository.
-![Clone Screenshot](assets/clone-screenshot.jpg)
+1. Clone the repository. <br/>
+<img src="assets/clone-screenshot.jpg"  width="60%" height="30%">
 
 ## Deploying Your Local Model to GCP
 Here is step-by-step of how to deploy the docker container on GCP:
