@@ -20,10 +20,7 @@ class RecycleableWaste:
     def __init__(self, jenis) -> None:
         self.total_methods = 0 # Default total methods
         self.jenis = jenis
-        self.judul = []
-        self.url_gambar = []
-        self.alat_dan_bahan = []
-        self.langkah = []
+        self.metode = []
 
 
 def json_converter(file_path) -> None:
@@ -49,10 +46,13 @@ def generate_data(current_waste, list_judul, list_url, list_alat_dan_bahan, list
     print(
         f"Generating recycle method for {current_waste.jenis}. Please wait...")
     current_waste.total_methods = METHODS_PER_WASTE
-    current_waste.judul.extend(list_judul)
-    current_waste.url_gambar.extend(list_url)
-    current_waste.alat_dan_bahan.extend(list_alat_dan_bahan)
-    current_waste.langkah.extend(list_langkah)
+    for idx in range(METHODS_PER_WASTE):
+        new_dict_method = dict()
+        new_dict_method['judul'] = list_judul[idx]
+        new_dict_method['url_gambar'] = list_url[idx]
+        new_dict_method['alat_dan_bahan'] = list_alat_dan_bahan[idx]
+        new_dict_method['langkah'] = list_langkah[idx]
+        current_waste.metode.append(new_dict_method)
     print()
 
 
