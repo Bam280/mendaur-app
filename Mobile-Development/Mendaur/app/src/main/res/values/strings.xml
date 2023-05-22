@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Mendaur</string>
+    <string name="logo_app">Logo App</string>
+    <string name="tv_selamat_datang">Selamat Datang</string>
+    <string name="tv_jargon_mendaur">Jaga Lingkungan, Peduli Masa Depan: Mulai dari Pengolahan Sampah</string>
+    <string name="tv_masuk">Masuk dengan Jejaring Sosial</string>
+    <string name="login_google">Masuk dengan Google</string>
+    <string name="login_facebook">Masuk dengan Facebook</string>
+
+    <string name="facebook_app_id">1904665759906176</string>
+    <string name="fb_login_protocol_scheme">fb1904665759906176</string>
+    <string name="facebook_client_token">456789</string>
+
 </resources>
