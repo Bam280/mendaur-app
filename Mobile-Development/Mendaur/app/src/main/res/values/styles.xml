@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="GoogleLoginButton" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">25dp</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="strokeColor">@color/black</item>
+        <item name="strokeWidth">2dp</item>
+    </style>
+    <style name="FacebookLoginButton" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">25dp</item>
+        <item name="backgroundTint">@color/facebook_blue</item>
+        <item name="strokeColor">@color/black</item>
+        <item name="strokeWidth">2dp</item>
+    </style>
+</resources>
