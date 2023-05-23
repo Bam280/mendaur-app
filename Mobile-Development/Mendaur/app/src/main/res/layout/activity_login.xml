@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
+    tools:context=".ui.login.LoginActivity"
     android:background="@drawable/background_login">
 
     <ImageView
@@ -98,7 +98,7 @@
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:fontFamily="@font/montserrat_regular"
+        android:fontFamily="@font/montserrat_extrabold"
         android:letterSpacing="-0.005"
         app:icon="@drawable/logo_facebook"
         app:iconGravity="start"

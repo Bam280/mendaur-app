@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.scan.ScanActivity">
+
+        <ImageView
+            android:id="@+id/previewImageView"
+            android:layout_width="300dp"
+            android:layout_height="420dp"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/desc_image_sampah"
+            android:src="@drawable/ic_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_add_location"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/montserrat_extrabold"
+            android:text="@string/view_share_my_location"
+            android:textColor="@color/green"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/previewImageView" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_camerax"
+            style="@style/WhiteButton"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/montserrat_extrabold"
+            android:text="@string/btn_camerax"
+            android:textSize="16sp"
+            android:letterSpacing="0"
+            android:textColor="@color/green"
+            app:layout_constraintStart_toStartOf="@+id/switch_add_location"
+            app:layout_constraintTop_toBottomOf="@+id/switch_add_location" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_gallery"
+            style="@style/WhiteButton"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:fontFamily="@font/montserrat_extrabold"
+            android:text="@string/btn_gallery"
+            android:textSize="16sp"
+            android:letterSpacing="0"
+            android:textColor="@color/green"
+            app:layout_constraintEnd_toEndOf="@+id/switch_add_location"
+            app:layout_constraintTop_toTopOf="@+id/btn_camerax" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_scan"
+            style="@style/GreenButton"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/montserrat_extrabold"
+            android:letterSpacing="0"
+            android:text="@string/btn_scan"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_camerax" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

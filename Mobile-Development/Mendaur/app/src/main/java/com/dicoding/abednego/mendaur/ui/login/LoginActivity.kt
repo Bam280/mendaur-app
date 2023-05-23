@@ -1,4 +1,4 @@
-package com.dicoding.abednego.mendaur
+package com.dicoding.abednego.mendaur.ui.login
 
 import android.app.Activity
 import android.content.Intent
@@ -8,6 +8,8 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import com.dicoding.abednego.mendaur.ui.main.MainActivity
+import com.dicoding.abednego.mendaur.R
 import com.dicoding.abednego.mendaur.databinding.ActivityLoginBinding
 import com.facebook.*
 import com.google.android.gms.auth.api.signin.GoogleSignIn
