@@ -6,15 +6,12 @@
     <string name="tv_masuk">Masuk dengan Jejaring Sosial</string>
     <string name="login_google">Masuk dengan Google</string>
     <string name="login_facebook">Masuk dengan Facebook</string>
-
     <string name="facebook_app_id">1904665759906176</string>
-    <string name="fb_login_protocol_scheme">fb1904665759906176</string>
-    <string name="facebook_client_token">456789</string>
+    <string name="facebook_client_token">18576cf6c02ecdd9ea3592ccd1f848e4</string>
     <string name="menu_home">Home</string>
     <string name="menu_profile">Profile</string>
     <string name="desc_float_btn_scan">Button to Open Scan Image Page</string>
     <string name="menu_title_blank"> </string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="desc_image_sampah">Gambar dari sampah yang ingin di deteksi</string>
     <string name="view_share_my_location">Bagikan lokasi saya</string>
     <string name="btn_camerax">kamera</string>
@@ -24,8 +21,6 @@
     <string name="title_upload_story">Scan Sampah</string>
     <string name="location_enabled">Lokasi diaktifkan</string>
     <string name="location_disabled">Lokasi dinonaktifkan</string>
-
-
     <string name="picture">picture</string>
     <string name="is_back_camera">isBackCamera</string>
     <string name="intent_type">image/*</string>
@@ -36,5 +31,18 @@
     <string name="failed_bring_up_camera">Gagal memunculkan kamera.</string>
     <string name="desc_capture">Tombol untuk mengambil gambar</string>
     <string name="desc_switch_camera">Tombol untuk mengganti posisi kamera</string>
+    <string name="tv_selamat_nama">%1$s, %2$s</string>
+    <string name="tv_yuk_daur_ulang">Yuk daur ulang sampahmu!</string>
+    <string name="desc_iv_profile">Profile picture</string>
+    <string name="tv_email">Email pengguna</string>
+    <string name="tv_username">Nama Pengguna</string>
+    <string name="btn_sign_out">Keluar</string>
+    <string name="btn_language">Pengaturan Bahasa</string>
+    <string name="btn_help">Pusat Bantuan</string>
+
+    <string name="confirmation">Konfirmasi</string>
+    <string name="are_you_sure_log_out">Apakah Anda yakin ingin keluar dari aplikasi?</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
 
 </resources>

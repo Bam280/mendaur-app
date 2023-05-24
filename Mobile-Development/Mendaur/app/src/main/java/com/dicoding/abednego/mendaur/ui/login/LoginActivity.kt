@@ -1,10 +1,16 @@
 package com.dicoding.abednego.mendaur.ui.login
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.app.Activity
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.WindowInsets
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -32,12 +38,9 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var callbackManager: CallbackManager
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
-        supportActionBar?.hide()
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -59,6 +62,8 @@ class LoginActivity : AppCompatActivity() {
         binding.btnLoginFacebook.setOnClickListener{
             facebookLogIn()
         }
+        setupView()
+        playAnimation()
     }
 
     private fun googleLogIn() {
@@ -156,6 +161,44 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
         val currentUser = auth.currentUser
         updateUI(currentUser)
+    }
+
+    private fun playAnimation() {
+        ObjectAnimator.ofFloat(binding.ivLogoMendaur, View.TRANSLATION_X, -30f, 30f).apply {
+            duration = 6000
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+        }.start()
+
+        val welcome = ObjectAnimator.ofFloat(binding.tvSelamatDatang, View.ALPHA, 1f).setDuration(500)
+        val jargon = ObjectAnimator.ofFloat(binding.tvJargon, View.ALPHA, 1f).setDuration(500)
+        val masuk = ObjectAnimator.ofFloat(binding.tvMasuk, View.ALPHA, 1f).setDuration(500)
+        val btnGoogleButton = ObjectAnimator.ofFloat(binding.btnLoginGoogle, View.ALPHA, 1f).setDuration(500)
+        val btnFacebookButton = ObjectAnimator.ofFloat(binding.btnLoginFacebook, View.ALPHA, 1f).setDuration(500)
+
+        AnimatorSet().apply {
+            playSequentially(
+                welcome,
+                jargon,
+                masuk,
+                btnGoogleButton,
+                btnFacebookButton
+            )
+            startDelay = 500
+        }.start()
+    }
+
+    private fun setupView() {
+        @Suppress("DEPRECATION")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.insetsController?.hide(WindowInsets.Type.statusBars())
+        } else {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
+        }
+        supportActionBar?.hide()
     }
 
     companion object {
