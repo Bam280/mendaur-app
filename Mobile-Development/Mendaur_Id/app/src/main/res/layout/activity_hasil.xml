@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_background"
+    tools:context=".ui.hasil.HasilActivity"
+    android:padding="20dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/card_background_hasil"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/tv_jenis_sampah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:text="@string/tv_jenis_sampah"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/green"
+                android:textSize="36sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_tipe_sampah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:text="@string/tv_tipe_sampah"
+                android:textAllCaps="true"
+                android:textColor="@color/green"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/tv_jenis_sampah"
+                app:layout_constraintStart_toStartOf="@+id/tv_jenis_sampah"
+                app:layout_constraintTop_toBottomOf="@+id/tv_jenis_sampah" />
+
+            <TextView
+                android:id="@+id/tv_apakah_anda_ingin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:text="@string/tv_apakah_anda_ingin"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/btn_cara_daur_ulang"
+                app:layout_constraintEnd_toEndOf="@+id/btn_tempat"
+                app:layout_constraintStart_toStartOf="@+id/btn_tempat" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_cara_daur_ulang"
+                style="@style/WhiteButton"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:letterSpacing="0"
+                android:text="@string/btn_cara_mendaur_ulang"
+                android:textAllCaps="false"
+                android:textColor="@color/green"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/tv_atau"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_atau"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="@string/tv_atau"
+                android:textSize="18sp"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/btn_tempat"
+                app:layout_constraintEnd_toEndOf="@+id/btn_tempat"
+                app:layout_constraintStart_toStartOf="@+id/btn_tempat" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_tempat"
+                style="@style/WhiteButton"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginBottom="40dp"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:letterSpacing="0"
+                android:text="@string/btn_tempat"
+                android:textAllCaps="false"
+                android:textColor="@color/green"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
