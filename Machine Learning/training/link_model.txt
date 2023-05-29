@@ -1,2 +1,3 @@
-Due to large size of h5 model, you can check out our latest CNN model on drive by accessing the following link:
-https://drive.google.com/drive/folders/1YpNl7amNAwr3B0DagzHXyegl-PN-eDuA?usp=sharing
+Due to large size of h5 model, you can check out our latest model on drive by accessing the following link:
+- CNN: https://drive.google.com/drive/folders/1YpNl7amNAwr3B0DagzHXyegl-PN-eDuA?usp=sharing
+- Feature Vector ResNet50: https://drive.google.com/file/d/1xzYlork-GEg_nLJCB_NyfGSsjYcJpQA4/view?usp=sharing
