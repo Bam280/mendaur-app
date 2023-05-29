@@ -1,0 +1,7 @@
+tensorflow==2.10
+ipykernel
+jupyter
+matplotlib
+Pillow
+gdown
+tensorflow-hub
