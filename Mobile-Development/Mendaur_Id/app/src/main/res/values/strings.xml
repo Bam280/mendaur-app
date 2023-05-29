@@ -10,7 +10,7 @@
     <string name="facebook_client_token">18576cf6c02ecdd9ea3592ccd1f848e4</string>
     <string name="menu_home">Home</string>
     <string name="menu_profile">Profile</string>
-    <string name="desc_float_btn_scan">Button to Open Scan Image Page</string>
+    <string name="desc_float_btn_scan">Button untuk membuka halaman scan gambar</string>
     <string name="menu_title_blank"> </string>
     <string name="desc_image_sampah">Gambar dari sampah yang ingin di deteksi</string>
     <string name="view_share_my_location">Bagikan lokasi saya</string>
@@ -51,9 +51,12 @@
     <string name="btn_cara_mendaur_ulang">Cara Mendaur Ulang</string>
     <string name="tv_apakah_anda_ingin">apakah anda ingin?</string>
     <string name="title_hasil_scan">Hasil Scan Sampah</string>
-    <string name="tv_waktu_post">dipost beberapa waktu lalu</string>
+    <string name="tv_waktu_post">29 Mei 2023</string>
     <string name="tv_nama_user">Nama User</string>
     <string name="desc_iv_artikel">Gambar artikel</string>
     <string name="description">Lorem ipsum dolor sit amet consectetur. Morbi neque vitae hac vulputate orci enim pellentesque. Sit nunc consectetur ultricies elit. Viverra aliquet duis neque est tincidunt nec tellus. Pellentesque tellus sapien a nec nunc eget nulla eget. Diam posuere quis a est elementum nec arcu. Tristique duis rutrum laoreet urna at. Tincidunt id tellus phasellus amet. Vel volutpat posuere rhoncus fringilla id tortor luctus non. Sit turpis aliquet sodales eget semper sit nibh. Nulla et odio aliquam sed. Blandit purus arcu est eget purus vitae aliquam. Condimentum purus lectus laoreet velit. Molestie mauris justo in turpis tristique est massa auctor.</string>
+    <string name="tv_judul_artikel">Judul Artikel</string>
+    <string name="iv_icon_time">Gambar ikon waktu</string>
+    <string name="desc_float_btn_add">Button untuk membuka halaman posting artikel</string>
 
 </resources>

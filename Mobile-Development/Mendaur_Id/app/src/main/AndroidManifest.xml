@@ -17,6 +17,9 @@
         android:theme="@style/Theme.MendaurId"
         tools:targetApi="31">
         <activity
+            android:name=".ui.daftarartikel.DaftarArtikelActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.detailartikel.DetailArtikelActivity"
             android:exported="false" />
         <activity

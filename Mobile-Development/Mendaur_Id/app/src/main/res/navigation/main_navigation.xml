@@ -2,8 +2,8 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_navigation"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/homeFragment"
+    android:id="@+id/main_navigation">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -14,6 +14,7 @@
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.dicoding.abednego.mendaurid.ui.profile.ProfileFragment"
@@ -24,4 +25,5 @@
             app:destination="@id/homeFragment"
             app:popUpToInclusive="false" />
     </fragment>
+
 </navigation>
