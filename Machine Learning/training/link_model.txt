@@ -1,0 +1,4 @@
+Due to large size of h5 model, you can check out our latest model on drive by accessing the following link:
+- CNN: https://drive.google.com/file/d/1XswttIrJvQn_hMkF6L93tLXbgT3w4TKa/view?usp=share_link
+- Feature Vector ResNet50: https://drive.google.com/file/d/1xzYlork-GEg_nLJCB_NyfGSsjYcJpQA4/view?usp=sharing
+- Feature Vector ResNet50 V2: https://drive.google.com/file/d/1Acmk7zYEn69jQtkLO1Aux7ueN58NOgEA/view?usp=sharing 

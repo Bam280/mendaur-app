@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.login.LoginActivity"
+    android:background="@drawable/background_login">
+
+    <ImageView
+        android:id="@+id/iv_logo_mendaur"
+        android:layout_width="260dp"
+        android:layout_height="58.33dp"
+        android:layout_marginBottom="80dp"
+        android:contentDescription="@string/logo_app"
+        android:src="@drawable/logo_mendaur"
+        app:layout_constraintBottom_toTopOf="@+id/tv_selamat_datang"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_selamat_datang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:alpha="0"
+        android:text="@string/tv_selamat_datang"
+        android:textColor="@color/greenDark"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/montserrat_extrabold"
+        app:layout_constraintBottom_toTopOf="@+id/tv_jargon"
+        app:layout_constraintEnd_toEndOf="@+id/iv_logo_mendaur"
+        app:layout_constraintStart_toStartOf="@+id/iv_logo_mendaur" />
+
+    <TextView
+        android:id="@+id/tv_jargon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:alpha="0"
+        android:gravity="center"
+        android:text="@string/tv_jargon_mendaur"
+        android:textSize="14sp"
+        android:fontFamily="@font/montserrat_regular"
+        android:textColor="@color/greenLight"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_masuk"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:alpha="0"
+        android:gravity="center"
+        android:text="@string/tv_masuk"
+        android:textSize="16sp"
+        android:textColor="@color/green"
+        android:fontFamily="@font/montserrat_regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_jargon" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_login_google"
+        style="@style/GoogleLoginButton"
+        android:layout_width="318dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:alpha="0"
+        android:text="@string/login_google"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:fontFamily="@font/montserrat_extrabold"
+        android:letterSpacing="-0.005"
+        app:icon="@drawable/logo_google"
+        app:iconGravity="start"
+        app:iconSize="28dp"
+        app:iconTint="@null"
+        app:layout_constraintEnd_toEndOf="@+id/tv_masuk"
+        app:layout_constraintStart_toStartOf="@+id/tv_masuk"
+        app:layout_constraintTop_toBottomOf="@+id/tv_masuk" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_login_facebook"
+        style="@style/FacebookLoginButton"
+        android:layout_width="318dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:alpha="0"
+        android:text="@string/login_facebook"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/montserrat_extrabold"
+        android:letterSpacing="-0.005"
+        app:icon="@drawable/logo_facebook"
+        app:iconGravity="start"
+        app:iconSize="35dp"
+        app:iconTint="@null"
+        app:layout_constraintEnd_toEndOf="@+id/btn_login_google"
+        app:layout_constraintStart_toStartOf="@+id/btn_login_google"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login_google" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

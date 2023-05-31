@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "129718864178",
+    "project_id": "mendaurbeta",
+    "storage_bucket": "mendaurbeta.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129718864178:android:2645fbf4933f264d382f2b",
+        "android_client_info": {
+          "package_name": "com.dicoding.abednego.mendaurid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "129718864178-178tlem1jd56k4e2q1pqs4mupadtjvsa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dicoding.abednego.mendaurid",
+            "certificate_hash": "213136474fb3af98146ecba47b4351c97d47aa9e"
+          }
+        },
+        {
+          "client_id": "129718864178-ujnqm3c66nkrubfukf5d7j529f5im08k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtLqiQMoVKFXCyq_fzo-v_PavAzrFyAPk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "129718864178-ujnqm3c66nkrubfukf5d7j529f5im08k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
