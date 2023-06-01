@@ -1,14 +1,18 @@
+# pylint: disable=locally-disabled, multiple-statements, fixme, line-too-long
+
 from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from google.cloud import firestore
 from google.cloud import storage
 from werkzeug.utils import secure_filename
+from nanoid import generate
 
 app = FastAPI()
-db = firestore.Client()
+project_id="mendaurbeta"
+db = firestore.Client(project=project_id)
 
-CLOUD_STORAGE_BUCKET = "mendaur-projtest.appspot.com"
+CLOUD_STORAGE_BUCKET = "mendaurbeta.appspot.com"
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 class Location(BaseModel):
@@ -16,9 +20,12 @@ class Location(BaseModel):
     longitude: float
     latitude: float
 
+class Article(BaseModel):
+    title: str
+    content: str
+
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-    
 
 @app.get("/")
 def home():
@@ -26,46 +33,55 @@ def home():
 
 @app.post("/save-location")
 async def save_location(location: Location):
-    # Create a new document in the 'locations' collection with the provided data
-    doc_ref = db.collection("locations").document()
+
+    doc_ref = db.collection("users").document(location.uid)
     doc_ref.set({
         "uid": location.uid,
         "longitude": location.longitude,
-        "latitude": location.latitude
+        "latitude": location.latitude,
     })
 
     return {"message": "Location saved successfully"}
 
 @app.post("/upload")
 async def upload(file: UploadFile = File(...)):
-    """Process the uploaded file and upload it to Google Cloud Storage."""
+
     if not allowed_file(file.filename):
         return JSONResponse(content="Invalid file type. Please upload an image.", status_code=400)
 
-    # Create a Cloud Storage client.
     gcs = storage.Client()
-
-    # Get the bucket that the file will be uploaded to.
-    bucket = gcs.get_bucket(CLOUD_STORAGE_BUCKET)
-
-    # Generate a secure filename
+    bucket = gcs.get_bucket(CLOUD_STORAGE_BUCKET)     
     filename = secure_filename(file.filename)
+    file_path = f"scan_img/{filename}"
 
-    # Create a new blob and upload the file's content.
-    blob = bucket.blob(filename)
-
+    blob = bucket.blob(file_path)
     blob.upload_from_file(file.file, content_type=file.content_type)
 
-    # The public URL can be used to directly access the uploaded file via HTTP.
     public_url = blob.public_url
 
-    # Create JSON response
     response = {
+        "message": "File uploaded successfully",
         "public_url": public_url
     }
 
-    # Return JSON response
     return response
+
+@app.post("/article")
+async def upload_article(article: Article):
+    article_id = str(generate())
+
+    doc_ref = db.collection("articles").document(article_id)
+    doc_ref.set({
+        "article_id": article_id,
+        "title": article.title,
+        "content": article.content,
+    })
+
+    return {
+        "article_id": article_id,
+        "title": article.title,
+        "content": article.content,
+    }
 
 @app.exception_handler(500)
 async def server_error(request, exc):
@@ -73,4 +89,4 @@ async def server_error(request, exc):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8080)
+    uvicorn.run(app, host="0.0.0.0", port=8080)
