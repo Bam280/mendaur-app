@@ -10,7 +10,7 @@ class DetailDaurUlangActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_daur_ulang)
 
-        val tvDescription: TextView = findViewById(R.id.tv_description)
+        val tvDescription: TextView = findViewById(R.id.tv_daftar_cara_membuat)
         val stringBuilder = StringBuilder()
 
         val langkah = listOf(
