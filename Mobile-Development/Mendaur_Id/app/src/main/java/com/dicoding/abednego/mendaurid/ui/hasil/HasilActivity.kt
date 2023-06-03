@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import com.dicoding.abednego.mendaurid.R
 import com.dicoding.abednego.mendaurid.databinding.ActivityHasilBinding
+import com.dicoding.abednego.mendaurid.ui.detaildaurulang.DetailDaurUlangActivity
 import com.dicoding.abednego.mendaurid.ui.maps.MapsActivity
 
 class HasilActivity : AppCompatActivity() {
@@ -22,6 +23,10 @@ class HasilActivity : AppCompatActivity() {
 
         binding.btnTempat.setOnClickListener {
             val intent = Intent(this, MapsActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnCaraDaurUlang.setOnClickListener {
+            val intent = Intent(this, DetailDaurUlangActivity::class.java)
             startActivity(intent)
         }
     }

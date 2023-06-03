@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_background"
+    tools:context=".ui.postartikel.PostArtikelActivity">
+
+    <EditText
+        android:id="@+id/et_isi_artikel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/edittext_background"
+        android:gravity="start"
+        android:inputType="textMultiLine"
+        android:autofillHints="textMultiLine"
+        android:lines="8"
+        android:maxLines="8"
+        android:minLines="8"
+        android:padding="8dp"
+        android:hint="@string/et_isi_artikel"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

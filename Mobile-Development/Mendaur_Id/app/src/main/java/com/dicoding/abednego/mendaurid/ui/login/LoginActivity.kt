@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -118,20 +119,12 @@ class LoginActivity : AppCompatActivity() {
                     progressBar.visibility = View.GONE
                     Log.d(TAG, "signInWithCredential:success")
                     val user: FirebaseUser? = auth.currentUser
-                    Snackbar.make(
-                        binding.root,
-                        "Login berhasil",
-                        Snackbar.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
                     updateUI(user)
                 } else {
                     progressBar.visibility = View.GONE
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    Snackbar.make(
-                        binding.root,
-                        "Gagal untuk login",
-                        Snackbar.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(this, "Gagal untuk login", Toast.LENGTH_SHORT).show()
                     updateUI(null)
                 }
             }
@@ -148,19 +141,12 @@ class LoginActivity : AppCompatActivity() {
                     Log.d(TAG, "signInWithCredential:success")
                     val user = auth.currentUser
                     updateUI(user)
-                    Snackbar.make(
-                        binding.root,
-                        "Login berhasil",
-                        Snackbar.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
+
                 } else {
                     progressBar.visibility = View.GONE
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    Snackbar.make(
-                        binding.root,
-                        "Gagal untuk login",
-                        Snackbar.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(this, "Gagal untuk login", Toast.LENGTH_SHORT).show()
                     updateUI(null)
                 }
             }

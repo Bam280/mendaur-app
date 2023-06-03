@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:divider="@null"
         android:dividerHeight="0dp"
-        tools:listitem="@layout/item_row_artikel" />
+        tools:listitem="@layout/item_list_artikel" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/float_btn_add"
