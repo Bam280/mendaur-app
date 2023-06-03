@@ -53,7 +53,8 @@
     <string name="tv_waktu_post">29 Mei 2023</string>
     <string name="tv_nama_user">Nama User</string>
     <string name="desc_iv_artikel">Gambar artikel</string>
-    <string name="description">Lorem ipsum dolor sit amet consectetur. Morbi neque vitae hac vulputate orci enim pellentesque. Sit nunc consectetur ultricies elit. Viverra aliquet duis neque est tincidunt nec tellus. Pellentesque tellus sapien a nec nunc eget nulla eget. Diam posuere quis a est elementum nec arcu. Tristique duis rutrum laoreet urna at. Tincidunt id tellus phasellus amet. Vel volutpat posuere rhoncus fringilla id tortor luctus non. Sit turpis aliquet sodales eget semper sit nibh. Nulla et odio aliquam sed. Blandit purus arcu est eget purus vitae aliquam. Condimentum purus lectus laoreet velit. Molestie mauris justo in turpis tristique est massa auctor.</string>
+    <string name="desc_iv_daur_ulang">Gambar daur ulang</string>
+    <string name="description">Lorem ipsum dolor sit amet consectetur. Morbi neque vitae hac vulputate orci enim pellentesque. Sit nunc consectetur ultricies elit. Viverra aliquet duis neque est tincidunt nec tellus.</string>
     <string name="tv_judul_artikel">Judul Artikel</string>
     <string name="iv_icon_time">Gambar ikon waktu</string>
     <string name="desc_float_btn_add">Button untuk membuka halaman posting artikel</string>
@@ -71,5 +72,14 @@
     <string name="hybrid_type">Hybrid</string>
     <string name="title_tempat_pengepul_terdekat">Tempat Pengepul Terdekat</string>
     <string name="rating">Rating: </string>
-    <string name="tv_kirim_sampah">Kirim sampah daur ulangmu ke Bank Sampah terdekat!</string>
+    <string name="tv_kirim_sampah">Yuk, kirim sampah daur ulangmu ke Bank Sampah terdekat!</string>
+    <string name="tv_masukan_foto">Masukan gambar sampah yang ingin dipindai</string>
+    <string name="selamat_pagi">Selamat pagi</string>
+    <string name="selamat_siang">Selamat siang</string>
+    <string name="selamat_malam">Selamat malam</string>
+    <string name="tv_judul_daur_ulang">Judul Daur Ulang</string>
+    <string name="desc_iv_icon_right">gambar icon right</string>
+    <string name="tv_alat_dan_bahan">Alat dan Bahan:</string>
+    <string name="tv_cara_membuat">Cara Membuat:</string>
+    <string name="et_isi_artikel">Masukkan isi artikel di sini..</string>
 </resources>

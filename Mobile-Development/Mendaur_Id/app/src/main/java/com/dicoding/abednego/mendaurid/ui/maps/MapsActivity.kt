@@ -109,7 +109,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     progressBar.visibility = View.GONE
                     val mapsResponse = result.data
                     if (mapsResponse.results != null) {
-                        mMap.clear() // Clear existing markers before adding new ones
+                        mMap.clear()
                         for (mapItem in mapsResponse.results) {
                             val geometry = mapItem?.geometry
                             if (geometry?.location != null) {
@@ -119,8 +119,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                                     .snippet(getString(R.string.rating)+mapItem.rating.toString())
                                 mMap.addMarker(markerOptions)
                             }
+                            else{
+                                Toast.makeText(this, "Bank sampah tidak ditemukan", Toast.LENGTH_SHORT).show()
+                            }
                         }
-                        // Adjust camera position to center the map view on the markers
                         val builder = LatLngBounds.Builder()
                         for (mapItem in mapsResponse.results) {
                             val geometry = mapItem?.geometry
@@ -131,7 +133,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                         }
 
                         val bounds = builder.build()
-                        val padding = 50 // Adjust padding as needed
+                        val padding = 50
                         val cameraUpdate = CameraUpdateFactory.newLatLngBounds(bounds, padding)
                         mMap.animateCamera(cameraUpdate)
                     } else {
