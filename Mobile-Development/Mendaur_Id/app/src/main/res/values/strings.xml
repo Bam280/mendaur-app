@@ -39,7 +39,6 @@
     <string name="btn_sign_out">Keluar</string>
     <string name="btn_language">Pengaturan Bahasa</string>
     <string name="btn_help">Pusat Bantuan</string>
-
     <string name="confirmation">Konfirmasi</string>
     <string name="are_you_sure_log_out">Apakah Anda yakin ingin keluar dari aplikasi?</string>
     <string name="yes">Ya</string>
@@ -58,5 +57,19 @@
     <string name="tv_judul_artikel">Judul Artikel</string>
     <string name="iv_icon_time">Gambar ikon waktu</string>
     <string name="desc_float_btn_add">Button untuk membuka halaman posting artikel</string>
-
+    <string name="email_mendaur">MendaurId@gmail.com</string>
+    <string name="email_subject">Laporan Kesalahan Prediksi</string>
+    <string name="email_body">Tim MendaurId yang terhormat,\n\nSaya ingin melaporkan kesalahan dalam prediksi.\n\n Silakan temukan detail di bawah ini:\n\n- Deskripsi kesalahan:\n\n Terima kasih.</string>
+    <string name="send_email">Kirim Email</string>
+    <string name="contact_mendaur_team">Apakah anda ingin menghubungi Tim Mendaur?</string>
+    <string name="no_gmail_app">Mohon Maaf… Aplikasi Gmail Tidak Ditemukan</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="API_KEY">AIzaSyCP_U6NChMMjCStduX5U7nPPgqtAsC6hUI</string>
+    <string name="normal_type">Normal</string>
+    <string name="satellite_type">Satellite</string>
+    <string name="terrain_type">Terrain</string>
+    <string name="hybrid_type">Hybrid</string>
+    <string name="title_tempat_pengepul_terdekat">Tempat Pengepul Terdekat</string>
+    <string name="rating">Rating: </string>
+    <string name="tv_kirim_sampah">Kirim sampah daur ulangmu ke Bank Sampah terdekat!</string>
 </resources>
