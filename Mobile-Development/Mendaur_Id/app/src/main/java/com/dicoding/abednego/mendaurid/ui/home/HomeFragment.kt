@@ -46,9 +46,9 @@ class HomeFragment : Fragment() {
     private fun getGreeting(): String {
         val calendar = Calendar.getInstance()
         return when (calendar.get(Calendar.HOUR_OF_DAY)) {
-            in 0..11 -> "Selamat pagi"
-            in 12..15 -> "Selamat siang"
-            else -> "Selamat malam"
+            in 0..11 -> getString(R.string.selamat_pagi)
+            in 12..15 -> getString(R.string.selamat_siang)
+            else -> getString(R.string.selamat_malam)
         }
     }
 

@@ -45,6 +45,7 @@
                 android:fontFamily="@font/montserrat_extrabold"
                 android:text="@string/tv_tipe_sampah"
                 android:textAllCaps="true"
+                android:textAlignment="center"
                 android:textColor="@color/green"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/tv_jenis_sampah"
@@ -60,6 +61,7 @@
                 android:text="@string/tv_apakah_anda_ingin"
                 android:textColor="@color/black"
                 android:textSize="18sp"
+                android:textAlignment="center"
                 app:layout_constraintBottom_toTopOf="@+id/btn_cara_daur_ulang"
                 app:layout_constraintEnd_toEndOf="@+id/btn_tempat"
                 app:layout_constraintStart_toStartOf="@+id/btn_tempat" />
@@ -89,6 +91,7 @@
                 android:textSize="18sp"
                 android:fontFamily="@font/montserrat_extrabold"
                 android:textColor="@color/black"
+                android:textAlignment="center"
                 app:layout_constraintBottom_toTopOf="@+id/btn_tempat"
                 app:layout_constraintEnd_toEndOf="@+id/btn_tempat"
                 app:layout_constraintStart_toStartOf="@+id/btn_tempat" />

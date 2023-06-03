@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="12dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginStart="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_artikel"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/desc_iv_artikel"
+            android:scaleType="centerCrop"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/tv_judul_artikel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:fontFamily="@font/montserrat_extrabold"
+            android:textColor="@color/greenDark"
+            android:textSize="16sp"
+            card_view:layout_constraintStart_toStartOf="@+id/iv_artikel"
+            card_view:layout_constraintTop_toBottomOf="@+id/iv_artikel"
+            tools:text="@string/tv_judul_artikel" />
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/montserrat_regular"
+            android:maxLines="3"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            card_view:layout_constraintStart_toStartOf="@+id/tv_judul_artikel"
+            card_view:layout_constraintTop_toBottomOf="@+id/tv_judul_artikel"
+            tools:text="@string/description" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_profile"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="@string/desc_iv_profile"
+            android:scaleType="centerCrop"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintStart_toStartOf="@+id/tv_judul_artikel"
+            card_view:layout_constraintTop_toBottomOf="@+id/tv_description"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tv_nama_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/montserrat_extrabold"
+            android:maxLines="1"
+            android:text="@string/tv_nama_user"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/greenDark"
+            android:textSize="12sp"
+            card_view:layout_constraintBottom_toBottomOf="@+id/iv_profile"
+            card_view:layout_constraintStart_toEndOf="@+id/iv_profile"
+            card_view:layout_constraintTop_toTopOf="@+id/iv_profile" />
+
+        <ImageView
+            android:id="@+id/iv_icon_time"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_time"
+            android:layout_marginEnd="4dp"
+            android:contentDescription="@string/iv_icon_time"
+            card_view:layout_constraintBottom_toBottomOf="@+id/tv_waktu_post"
+            card_view:layout_constraintEnd_toStartOf="@+id/tv_waktu_post"
+            card_view:layout_constraintTop_toTopOf="@+id/tv_waktu_post" />
+
+        <TextView
+            android:id="@+id/tv_waktu_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/tv_waktu_post"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            card_view:layout_constraintBottom_toBottomOf="@+id/tv_nama_user"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toTopOf="@+id/tv_nama_user" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

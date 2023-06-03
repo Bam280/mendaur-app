@@ -4,11 +4,9 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
-import android.location.Location
 import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -17,21 +15,12 @@ import androidx.core.content.ContextCompat
 import com.dicoding.abednego.mendaurid.R
 import com.dicoding.abednego.mendaurid.databinding.ActivityScanBinding
 import com.dicoding.abednego.mendaurid.ui.hasil.HasilActivity
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.RequestBody
-import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 
 class ScanActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityScanBinding
-    private lateinit var fusedLocationClient: FusedLocationProviderClient
     private var getFile: File? = null
-    private var currentLocation: Location? = null
-    private var positionLat: RequestBody? = null
-    private var positionLon: RequestBody? = null
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -63,23 +52,6 @@ class ScanActivity : AppCompatActivity() {
         supportActionBar?.title = getString(R.string.title_scan_sampah)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-
-        getMyLocation()
-
-        binding.switchAddLocation.setOnCheckedChangeListener { _: CompoundButton?, isChecked: Boolean ->
-            if (isChecked) {
-                binding.switchAddLocation.text = getString(R.string.location_enabled)
-                val location = currentLocation
-                if (location != null) {
-                    positionLat = location.latitude.toString().toRequestBody("text/plain".toMediaType())
-                    positionLon = location.longitude.toString().toRequestBody("text/plain".toMediaType())
-                }
-            } else {
-                binding.switchAddLocation.text = getString(R.string.location_disabled)
-            }
-        }
-
         if (!allPermissionsGranted()) {
             ActivityCompat.requestPermissions(
                 this,
@@ -93,26 +65,6 @@ class ScanActivity : AppCompatActivity() {
 
         binding.btnScan.setOnClickListener{
             startActivity(Intent(this@ScanActivity, HasilActivity::class.java))
-        }
-    }
-
-    private fun getMyLocation() {
-        if (ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) == PackageManager.PERMISSION_GRANTED
-        ) {
-            fusedLocationClient.lastLocation.addOnSuccessListener { location ->
-                if (location != null) {
-                    currentLocation = location
-                }
-            }
-        } else {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-                REQUEST_CODE_PERMISSIONS
-            )
         }
     }
 

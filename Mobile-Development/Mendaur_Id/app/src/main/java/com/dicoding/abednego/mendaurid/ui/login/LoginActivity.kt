@@ -4,31 +4,30 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.app.Activity
 import android.content.Intent
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.view.WindowInsets
-import android.view.WindowManager
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.abednego.mendaurid.R
-import com.dicoding.abednego.mendaurid.ui.main.MainActivity
 import com.dicoding.abednego.mendaurid.databinding.ActivityLoginBinding
+import com.dicoding.abednego.mendaurid.ui.main.MainActivity
 import com.facebook.*
+import com.facebook.login.LoginManager
+import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.*
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.facebook.login.LoginManager
-import com.facebook.login.LoginResult
-import com.google.firebase.auth.*
 
 
 class LoginActivity : AppCompatActivity() {
@@ -37,6 +36,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
     private lateinit var callbackManager: CallbackManager
+    private lateinit var progressBar: ProgressBar
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +45,10 @@ class LoginActivity : AppCompatActivity() {
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        supportActionBar?.hide()
+
+        progressBar = binding.progressBar
 
         val gso = GoogleSignInOptions
             .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -62,7 +67,6 @@ class LoginActivity : AppCompatActivity() {
         binding.btnLoginFacebook.setOnClickListener{
             facebookLogIn()
         }
-        setupView()
         playAnimation()
     }
 
@@ -107,41 +111,42 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun firebaseAuthWithGoogle(idToken: String) {
+        progressBar.visibility = View.VISIBLE
         val credential: AuthCredential = GoogleAuthProvider.getCredential(idToken, null)
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
+                    progressBar.visibility = View.GONE
                     Log.d(TAG, "signInWithCredential:success")
                     val user: FirebaseUser? = auth.currentUser
+                    Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
                     updateUI(user)
                 } else {
+                    progressBar.visibility = View.GONE
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    Toast.makeText(
-                        baseContext,
-                        "Authentication failed.",
-                        Toast.LENGTH_SHORT,
-                    ).show()
+                    Toast.makeText(this, "Gagal untuk login", Toast.LENGTH_SHORT).show()
                     updateUI(null)
                 }
             }
     }
 
     private fun handleFacebookAccessToken(token: AccessToken) {
+        progressBar.visibility = View.VISIBLE
         Log.d(TAG, "handleFacebookAccessToken:$token")
         val credential = FacebookAuthProvider.getCredential(token.token)
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
+                    progressBar.visibility = View.GONE
                     Log.d(TAG, "signInWithCredential:success")
                     val user = auth.currentUser
                     updateUI(user)
+                    Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
+
                 } else {
+                    progressBar.visibility = View.GONE
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    Toast.makeText(
-                        baseContext,
-                        "Authentication failed.",
-                        Toast.LENGTH_SHORT,
-                    ).show()
+                    Toast.makeText(this, "Gagal untuk login", Toast.LENGTH_SHORT).show()
                     updateUI(null)
                 }
             }
@@ -191,19 +196,6 @@ class LoginActivity : AppCompatActivity() {
             )
             startDelay = 500
         }.start()
-    }
-
-    private fun setupView() {
-        @Suppress("DEPRECATION")
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            window.insetsController?.hide(WindowInsets.Type.statusBars())
-        } else {
-            window.setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN
-            )
-        }
-        supportActionBar?.hide()
     }
 
     companion object {

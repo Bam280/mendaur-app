@@ -10,7 +10,7 @@
     <string name="facebook_client_token">18576cf6c02ecdd9ea3592ccd1f848e4</string>
     <string name="menu_home">Home</string>
     <string name="menu_profile">Profile</string>
-    <string name="desc_float_btn_scan">Button to Open Scan Image Page</string>
+    <string name="desc_float_btn_scan">Button untuk membuka halaman scan gambar</string>
     <string name="menu_title_blank"> </string>
     <string name="desc_image_sampah">Gambar dari sampah yang ingin di deteksi</string>
     <string name="view_share_my_location">Bagikan lokasi saya</string>
@@ -39,7 +39,6 @@
     <string name="btn_sign_out">Keluar</string>
     <string name="btn_language">Pengaturan Bahasa</string>
     <string name="btn_help">Pusat Bantuan</string>
-
     <string name="confirmation">Konfirmasi</string>
     <string name="are_you_sure_log_out">Apakah Anda yakin ingin keluar dari aplikasi?</string>
     <string name="yes">Ya</string>
@@ -51,9 +50,36 @@
     <string name="btn_cara_mendaur_ulang">Cara Mendaur Ulang</string>
     <string name="tv_apakah_anda_ingin">apakah anda ingin?</string>
     <string name="title_hasil_scan">Hasil Scan Sampah</string>
-    <string name="tv_waktu_post">dipost beberapa waktu lalu</string>
+    <string name="tv_waktu_post">29 Mei 2023</string>
     <string name="tv_nama_user">Nama User</string>
     <string name="desc_iv_artikel">Gambar artikel</string>
-    <string name="description">Lorem ipsum dolor sit amet consectetur. Morbi neque vitae hac vulputate orci enim pellentesque. Sit nunc consectetur ultricies elit. Viverra aliquet duis neque est tincidunt nec tellus. Pellentesque tellus sapien a nec nunc eget nulla eget. Diam posuere quis a est elementum nec arcu. Tristique duis rutrum laoreet urna at. Tincidunt id tellus phasellus amet. Vel volutpat posuere rhoncus fringilla id tortor luctus non. Sit turpis aliquet sodales eget semper sit nibh. Nulla et odio aliquam sed. Blandit purus arcu est eget purus vitae aliquam. Condimentum purus lectus laoreet velit. Molestie mauris justo in turpis tristique est massa auctor.</string>
-
+    <string name="desc_iv_daur_ulang">Gambar daur ulang</string>
+    <string name="description">Lorem ipsum dolor sit amet consectetur. Morbi neque vitae hac vulputate orci enim pellentesque. Sit nunc consectetur ultricies elit. Viverra aliquet duis neque est tincidunt nec tellus.</string>
+    <string name="tv_judul_artikel">Judul Artikel</string>
+    <string name="iv_icon_time">Gambar ikon waktu</string>
+    <string name="desc_float_btn_add">Button untuk membuka halaman posting artikel</string>
+    <string name="email_mendaur">MendaurId@gmail.com</string>
+    <string name="email_subject">Laporan Kesalahan Prediksi</string>
+    <string name="email_body">Tim MendaurId yang terhormat,\n\nSaya ingin melaporkan kesalahan dalam prediksi.\n\n Silakan temukan detail di bawah ini:\n\n- Deskripsi kesalahan:\n\n Terima kasih.</string>
+    <string name="send_email">Kirim Email</string>
+    <string name="contact_mendaur_team">Apakah anda ingin menghubungi Tim Mendaur?</string>
+    <string name="no_gmail_app">Mohon Maaf… Aplikasi Gmail Tidak Ditemukan</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="API_KEY">AIzaSyDPBWasvL5lsAwZpO5lTAox2H9f3sb-qkY</string>
+    <string name="normal_type">Normal</string>
+    <string name="satellite_type">Satellite</string>
+    <string name="terrain_type">Terrain</string>
+    <string name="hybrid_type">Hybrid</string>
+    <string name="title_tempat_pengepul_terdekat">Tempat Pengepul Terdekat</string>
+    <string name="rating">Rating: </string>
+    <string name="tv_kirim_sampah">Yuk, kirim sampah daur ulangmu ke Bank Sampah terdekat!</string>
+    <string name="tv_masukan_foto">Masukan gambar sampah yang ingin dipindai</string>
+    <string name="selamat_pagi">Selamat pagi</string>
+    <string name="selamat_siang">Selamat siang</string>
+    <string name="selamat_malam">Selamat malam</string>
+    <string name="tv_judul_daur_ulang">Judul Daur Ulang</string>
+    <string name="desc_iv_icon_right">gambar icon right</string>
+    <string name="tv_alat_dan_bahan">Alat dan Bahan:</string>
+    <string name="tv_cara_membuat">Cara Membuat:</string>
+    <string name="et_isi_artikel">Masukkan isi artikel di sini..</string>
 </resources>
