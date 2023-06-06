@@ -5,9 +5,6 @@
     <string name="tv_jargon_mendaur">Jaga Lingkungan, Peduli Masa Depan: Mulai dari Pengolahan Sampah</string>
     <string name="tv_masuk">Masuk dengan Jejaring Sosial</string>
     <string name="login_google">Masuk dengan Google</string>
-    <string name="login_facebook">Masuk dengan Facebook</string>
-    <string name="facebook_app_id">1904665759906176</string>
-    <string name="facebook_client_token">18576cf6c02ecdd9ea3592ccd1f848e4</string>
     <string name="menu_home">Home</string>
     <string name="menu_profile">Profile</string>
     <string name="desc_float_btn_scan">Button untuk membuka halaman scan gambar</string>
@@ -34,7 +31,7 @@
     <string name="tv_selamat_nama">%1$s, %2$s</string>
     <string name="tv_yuk_daur_ulang">Yuk daur ulang sampahmu!</string>
     <string name="desc_iv_profile">Profile picture</string>
-    <string name="tv_email">Email pengguna</string>
+    <string name="tv_email">Emailpengguna@gmail.com</string>
     <string name="tv_username">Nama Pengguna</string>
     <string name="btn_sign_out">Keluar</string>
     <string name="btn_language">Pengaturan Bahasa</string>
@@ -71,7 +68,6 @@
     <string name="terrain_type">Terrain</string>
     <string name="hybrid_type">Hybrid</string>
     <string name="title_tempat_pengepul_terdekat">Tempat Pengepul Terdekat</string>
-    <string name="rating">Rating: </string>
     <string name="tv_kirim_sampah">Yuk, kirim sampah daur ulangmu ke Bank Sampah terdekat!</string>
     <string name="tv_masukan_foto">Masukan gambar sampah yang ingin dipindai</string>
     <string name="selamat_pagi">Selamat pagi</string>
@@ -82,4 +78,18 @@
     <string name="tv_alat_dan_bahan">Alat dan Bahan:</string>
     <string name="tv_cara_membuat">Cara Membuat:</string>
     <string name="et_isi_artikel">Masukkan isi artikel di sini..</string>
+    <string name="et_judul_artikel">Masukkan judul di sini..</string>
+    <string name="selamat_sore">Selamat Sore</string>
+    <string name="rating">Rating: </string>
+    <string name="tv_akurasi">Akurasi: %s</string>
+    <string name="btn_send">kirim</string>
+    <string name="bank_sampah">Bank Sampah</string>
+    <string name="bank_sampah_tidak_ditemukan">Bank sampah tidak ditemukan</string>
+    <string name="terjadi_kesalahan">Terjadi Kesalahan</string>
+    <string name="tv_isi_artikel">Isi Artikel</string>
+    <string name="title_detail_daur_ulang">Detail Cara Daur Ulang</string>
+    <string name="title_daur_ulang">Daftar Cara Daur Ulang</string>
+    <string name="empty_file">File kosong atau tidak ditemukan</string>
+    <string name="media_type" translatable="false">image/jpeg</string>
+    <string name="photo" translatable="false">photo</string>
 </resources>

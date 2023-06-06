@@ -48,6 +48,7 @@ class HomeFragment : Fragment() {
         return when (calendar.get(Calendar.HOUR_OF_DAY)) {
             in 0..11 -> getString(R.string.selamat_pagi)
             in 12..15 -> getString(R.string.selamat_siang)
+            in 16..18 -> getString(R.string.selamat_sore)
             else -> getString(R.string.selamat_malam)
         }
     }

@@ -9,18 +9,28 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.dicoding.abednego.mendaurid.R
 import com.dicoding.abednego.mendaurid.databinding.ActivityScanBinding
+import com.dicoding.abednego.mendaurid.ui.detaildaurulang.DetailDaurUlangActivity
 import com.dicoding.abednego.mendaurid.ui.hasil.HasilActivity
+import com.dicoding.abednego.mendaurid.utils.Result
+import com.dicoding.abednego.mendaurid.viewmodel.ViewModelFactory
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
 
 class ScanActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityScanBinding
     private var getFile: File? = null
+    private val scanViewModel: ScanViewModel by viewModels {
+        ViewModelFactory()
+    }
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -64,7 +74,40 @@ class ScanActivity : AppCompatActivity() {
         binding.btnGallery.setOnClickListener { startGallery() }
 
         binding.btnScan.setOnClickListener{
-            startActivity(Intent(this@ScanActivity, HasilActivity::class.java))
+
+            val file = getFile?.takeIf { it.exists() } ?: run {
+                Toast.makeText(this, getString(R.string.empty_file), Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val reducedFile = reduceFileImage(file)
+            val requestImageFile = reducedFile.asRequestBody(getString(R.string.media_type).toMediaTypeOrNull())
+            val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
+                getString(R.string.photo),
+                reducedFile.name,
+                requestImageFile
+            )
+
+            scanViewModel.getScanResult(imageMultipart).observe(this){result ->
+                when (result) {
+                    is Result.Success -> {
+                        val data = result.data
+                        if (data.result.isNotEmpty()) {
+                            val intent = Intent(this, HasilActivity::class.java)
+                            intent.putExtra("result", data.result[0])
+                            startActivity(intent)
+                        } else {
+
+                        }
+                    }
+                    is Result.Error ->{
+
+                    }
+                    else ->{
+
+                    }
+                }
+            }
         }
     }
 
@@ -105,7 +148,6 @@ class ScanActivity : AppCompatActivity() {
         }
     }
 
-    @Suppress("DEPRECATION")
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {

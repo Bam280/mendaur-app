@@ -35,9 +35,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
-    private lateinit var callbackManager: CallbackManager
     private lateinit var progressBar: ProgressBar
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,13 +57,9 @@ class LoginActivity : AppCompatActivity() {
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         auth = Firebase.auth
-        callbackManager = CallbackManager.Factory.create()
 
         binding.btnLoginGoogle.setOnClickListener {
             googleLogIn()
-        }
-        binding.btnLoginFacebook.setOnClickListener{
-            facebookLogIn()
         }
         playAnimation()
     }
@@ -91,25 +85,6 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun facebookLogIn() {
-        LoginManager.getInstance().logInWithReadPermissions(this, listOf("email", "public_profile"))
-        LoginManager.getInstance().registerCallback(callbackManager, object :
-            FacebookCallback<LoginResult> {
-            override fun onSuccess(result: LoginResult) {
-                Log.d(TAG, "facebook:onSuccess:${result.accessToken}")
-                handleFacebookAccessToken(result.accessToken)
-            }
-
-            override fun onCancel() {
-                Log.d(TAG, "facebook:onCancel")
-            }
-
-            override fun onError(error: FacebookException) {
-                Log.d(TAG, "facebook:onError", error)
-            }
-        })
-    }
-
     private fun firebaseAuthWithGoogle(idToken: String) {
         progressBar.visibility = View.VISIBLE
         val credential: AuthCredential = GoogleAuthProvider.getCredential(idToken, null)
@@ -128,36 +103,6 @@ class LoginActivity : AppCompatActivity() {
                     updateUI(null)
                 }
             }
-    }
-
-    private fun handleFacebookAccessToken(token: AccessToken) {
-        progressBar.visibility = View.VISIBLE
-        Log.d(TAG, "handleFacebookAccessToken:$token")
-        val credential = FacebookAuthProvider.getCredential(token.token)
-        auth.signInWithCredential(credential)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    progressBar.visibility = View.GONE
-                    Log.d(TAG, "signInWithCredential:success")
-                    val user = auth.currentUser
-                    updateUI(user)
-                    Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
-
-                } else {
-                    progressBar.visibility = View.GONE
-                    Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    Toast.makeText(this, "Gagal untuk login", Toast.LENGTH_SHORT).show()
-                    updateUI(null)
-                }
-            }
-    }
-
-    @Suppress("DEPRECATION")
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        callbackManager.onActivityResult(requestCode, resultCode, data)
     }
 
     private fun updateUI(currentUser: FirebaseUser?) {
@@ -184,15 +129,13 @@ class LoginActivity : AppCompatActivity() {
         val jargon = ObjectAnimator.ofFloat(binding.tvJargon, View.ALPHA, 1f).setDuration(500)
         val masuk = ObjectAnimator.ofFloat(binding.tvMasuk, View.ALPHA, 1f).setDuration(500)
         val btnGoogleButton = ObjectAnimator.ofFloat(binding.btnLoginGoogle, View.ALPHA, 1f).setDuration(500)
-        val btnFacebookButton = ObjectAnimator.ofFloat(binding.btnLoginFacebook, View.ALPHA, 1f).setDuration(500)
 
         AnimatorSet().apply {
             playSequentially(
                 welcome,
                 jargon,
                 masuk,
-                btnGoogleButton,
-                btnFacebookButton
+                btnGoogleButton
             )
             startDelay = 500
         }.start()

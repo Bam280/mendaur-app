@@ -32,7 +32,7 @@
                 android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textColor="@color/green"
-                android:textSize="24sp"
+                android:textSize="36sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -51,8 +51,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_jenis_sampah"
                 tools:listitem="@layout/item_list_daur_ulang" />
-
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
