@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white_background"
-    tools:context=".ui.hasil.HasilActivity"
-    android:padding="20dp">
+    tools:context=".ui.hasil.HasilActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -14,7 +13,8 @@
         app:cardCornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="20dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

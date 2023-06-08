@@ -3,6 +3,7 @@ package com.dicoding.abednego.mendaurid.ui.profile
 import android.app.AlertDialog
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.view.LayoutInflater
@@ -46,7 +47,7 @@ class ProfileFragment : Fragment() {
 
         binding.tvUsername.text = userName
         binding.tvEmail.text = emailUser
-        binding.btnSignOut.setOnClickListener{
+        binding.btnSignOut.setOnClickListener {
             AlertDialog.Builder(requireContext())
                 .setTitle(getString(R.string.confirmation))
                 .setMessage(getString(R.string.are_you_sure_log_out))
@@ -68,14 +69,29 @@ class ProfileFragment : Fragment() {
                 putExtra(Intent.EXTRA_TEXT, getString(R.string.email_body))
             }
 
+            val packageManager = requireContext().packageManager
+            val activities = packageManager.queryIntentActivities(emailIntent, 0)
+
             val alertDialogBuilder = AlertDialog.Builder(requireContext())
                 .setTitle(getString(R.string.send_email))
                 .setMessage(getString(R.string.contact_mendaur_team))
                 .setPositiveButton(getString(R.string.yes)) { _, _ ->
-                    try {
-                        startActivity(emailIntent)
-                    } catch (ex: ActivityNotFoundException) {
-                        Toast.makeText(requireContext(), getString(R.string.no_gmail_app), Toast.LENGTH_SHORT).show()
+                    if (activities.isNotEmpty()) {
+                        try {
+                            startActivity(emailIntent)
+                        } catch (ex: ActivityNotFoundException) {
+                            Toast.makeText(
+                                requireContext(),
+                                getString(R.string.no_gmail_app),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    } else {
+                        Toast.makeText(
+                            requireContext(),
+                            getString(R.string.no_gmail_app),
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
                 .setNegativeButton(getString(R.string.no)) { dialog, _ ->

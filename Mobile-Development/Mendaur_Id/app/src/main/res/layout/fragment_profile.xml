@@ -61,7 +61,7 @@
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/montserrat_regular"
                 android:text="@string/tv_email"
-                android:textColor="@color/black"
+                android:textColor="@color/greenDark"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_profile"

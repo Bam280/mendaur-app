@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Mendaur</string>
-    <string name="logo_app">Logo App</string>
+    <string name="logo_app">Logo aplikasi mendaur</string>
     <string name="tv_selamat_datang">Selamat Datang</string>
     <string name="tv_jargon_mendaur">Jaga Lingkungan, Peduli Masa Depan: Mulai dari Pengolahan Sampah</string>
     <string name="tv_masuk">Masuk dengan Jejaring Sosial</string>
@@ -16,8 +16,6 @@
     <string name="btn_scan">Pindai</string>
     <string name="no_permission">Tidak Mendapatkan Izin</string>
     <string name="title_scan_sampah">Scan Sampah</string>
-    <string name="location_enabled">Lokasi diaktifkan</string>
-    <string name="location_disabled">Lokasi dinonaktifkan</string>
     <string name="picture">picture</string>
     <string name="is_back_camera">isBackCamera</string>
     <string name="intent_type">image/*</string>
@@ -29,7 +27,8 @@
     <string name="desc_capture">Tombol untuk mengambil gambar</string>
     <string name="desc_switch_camera">Tombol untuk mengganti posisi kamera</string>
     <string name="tv_selamat_nama">%1$s, %2$s</string>
-    <string name="tv_yuk_daur_ulang">Yuk daur ulang sampahmu!</string>
+    <string name="tv_yuk_daur_ulang">Yuk, daur ulang sampahmu!</string>
+    <string name="tv_yuk_baca_artikel">Yuk, Baca Artikel!</string>
     <string name="desc_iv_profile">Profile picture</string>
     <string name="tv_email">Emailpengguna@gmail.com</string>
     <string name="tv_username">Nama Pengguna</string>
@@ -57,7 +56,7 @@
     <string name="desc_float_btn_add">Button untuk membuka halaman posting artikel</string>
     <string name="email_mendaur">MendaurId@gmail.com</string>
     <string name="email_subject">Laporan Kesalahan Prediksi</string>
-    <string name="email_body">Tim MendaurId yang terhormat,\n\nSaya ingin melaporkan kesalahan dalam prediksi.\n\n Silakan temukan detail di bawah ini:\n\n- Deskripsi kesalahan:\n\n Terima kasih.</string>
+    <string name="email_body">Tim MendaurId yang terhormat,\n\nSaya ingin melaporkan kesalahan dalam prediksi. Silakan temukan detail di bawah ini:\n\n- Deskripsi kesalahan:\n\n \n Terima kasih.</string>
     <string name="send_email">Kirim Email</string>
     <string name="contact_mendaur_team">Apakah anda ingin menghubungi Tim Mendaur?</string>
     <string name="no_gmail_app">Mohon Maaf… Aplikasi Gmail Tidak Ditemukan</string>
@@ -92,4 +91,25 @@
     <string name="empty_file">File kosong atau tidak ditemukan</string>
     <string name="media_type" translatable="false">image/jpeg</string>
     <string name="photo" translatable="false">photo</string>
+    <string name="tv_daftar_daur_not_found">Daftar daur ulang tidak ditemukan</string>
+    <string name="tv_lihat_semua">Lihat semua</string>
+    <string name="tv_artikel_tidak_ditemukan">Daftar artikel tidak ditemukan</string>
+    <string name="title_detail_artikel">Detail Artikel</string>
+    <string name="tvf_isi_artikel">Isi Artikel: </string>
+    <string name="title_daftar_artikel">Daftar Artikel</string>
+    <string name="empty_title">Judul tidak boleh kosong</string>
+    <string name="empty_content">Isi artikel tidak boleh kosong</string>
+    <string name="title_post_artikel">Post Artikel</string>
+    <string name="tv_yuk_lihat">Yuk, Lihat Cara Daur \n Ulang Sampahmu!</string>
+    <string name="tv_jenis">jenis</string>
+    <string name="memuat">Memuat</string>
+    <string name="mohon_menunggu">Mohon menungu…</string>
+    <string name="scan_berhasil">Scan berhasil</string>
+    <string name="scan_tidak_berhasil">Scan tidak berhasil, silahkan coba lagi</string>
+    <string name="gagal_login">Gagal untuk login</string>
+    <string name="berhasil_login">Login berhasil</string>
+    <string name="post_tidak_berhasil">Post tidak berhasil, silahkan coba lagi</string>
+    <string name="error_timeout">Error: Timeout</string>
+    <string name="tv_pastikan">Pastikan foto yang Anda kirimkan memiliki kualitas yang cukup jelas dan hindari foto yang buram, terpotong, atau terlalu gelap sehingga sulit untuk mengidentifikasi sampah dengan jelas.</string>
+    <string name="desc_iv_banner">Gambar banner ajakan untuk bawa sampah daur ulang ke bank sampah terdekat</string>
 </resources>

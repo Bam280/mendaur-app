@@ -197,6 +197,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         private const val REQUEST_CODE_PERMISSIONS = 10
         private const val TAG = "MapsActivity"
         private const val KEYWORD = "Bank Sampah"
-        private const val ZEROSTATUS = "ZERO"
+        private const val ZEROSTATUS = "ZERO_RESULTS"
     }
 }

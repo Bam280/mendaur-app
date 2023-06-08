@@ -3,6 +3,7 @@ package com.dicoding.abednego.mendaurid.ui.login
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -15,18 +16,19 @@ import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.abednego.mendaurid.R
 import com.dicoding.abednego.mendaurid.databinding.ActivityLoginBinding
 import com.dicoding.abednego.mendaurid.ui.main.MainActivity
-import com.facebook.*
-import com.facebook.login.LoginManager
-import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
-import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.auth.*
+import com.google.firebase.auth.AuthCredential
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.SetOptions
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 
@@ -77,9 +79,39 @@ class LoginActivity : AppCompatActivity() {
             try {
                 val account: GoogleSignInAccount = task.getResult(ApiException::class.java)!!
                 Log.d(TAG, "firebaseAuthWithGoogle:" + account.id)
+                val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.putString("account_id", account.id)
+                editor.apply()
+                val db = Firebase.firestore
+                val data = hashMapOf(
+                    UID to account.id,
+                    NAME to account.displayName,
+                    PHOTO_URL to account.photoUrl
+                )
+
+                val documentRef = db.collection("users").document(account.id.toString())
+                documentRef.get()
+                    .addOnSuccessListener { documentSnapshot ->
+                        if (documentSnapshot.exists()) {
+                            Log.d(TAG, "Data already exists in the database")
+                        } else {
+                            documentRef.set(data, SetOptions.merge())
+                                .addOnSuccessListener {
+                                    Log.d(TAG, "Data added to the database")
+                                    firebaseAuthWithGoogle(account.idToken!!)
+                                }
+                                .addOnFailureListener { e ->
+                                    Log.w(TAG, "Failed to add data to the database", e)
+                                }
+                        }
+                    }
+                    .addOnFailureListener { e ->
+                        Log.w(TAG, "Failed to retrieve data from the database", e)
+                    }
                 firebaseAuthWithGoogle(account.idToken!!)
             } catch (e: ApiException) {
-
+                Toast.makeText(this, getString(R.string.gagal_login), Toast.LENGTH_SHORT).show()
                 Log.w(TAG, "Google sign in failed", e)
             }
         }
@@ -94,12 +126,12 @@ class LoginActivity : AppCompatActivity() {
                     progressBar.visibility = View.GONE
                     Log.d(TAG, "signInWithCredential:success")
                     val user: FirebaseUser? = auth.currentUser
-                    Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.berhasil_login), Toast.LENGTH_SHORT).show()
                     updateUI(user)
                 } else {
                     progressBar.visibility = View.GONE
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    Toast.makeText(this, "Gagal untuk login", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.gagal_login), Toast.LENGTH_SHORT).show()
                     updateUI(null)
                 }
             }
@@ -143,5 +175,8 @@ class LoginActivity : AppCompatActivity() {
 
     companion object {
         private const val TAG = "LoginActivity"
+        const val UID = "userid"
+        const val NAME = "name"
+        const val PHOTO_URL = "photourl"
     }
 }

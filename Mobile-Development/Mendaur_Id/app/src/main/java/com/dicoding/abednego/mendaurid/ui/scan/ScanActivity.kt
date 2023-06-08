@@ -1,6 +1,7 @@
 package com.dicoding.abednego.mendaurid.ui.scan
 
 import android.Manifest
+import android.app.ProgressDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
@@ -15,9 +16,11 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.dicoding.abednego.mendaurid.R
 import com.dicoding.abednego.mendaurid.databinding.ActivityScanBinding
-import com.dicoding.abednego.mendaurid.ui.detaildaurulang.DetailDaurUlangActivity
 import com.dicoding.abednego.mendaurid.ui.hasil.HasilActivity
 import com.dicoding.abednego.mendaurid.utils.Result
+import com.dicoding.abednego.mendaurid.utils.reduceFileImage
+import com.dicoding.abednego.mendaurid.utils.reduceFileImageAndroidX
+import com.dicoding.abednego.mendaurid.utils.uriToFile
 import com.dicoding.abednego.mendaurid.viewmodel.ViewModelFactory
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -31,6 +34,7 @@ class ScanActivity : AppCompatActivity() {
     private val scanViewModel: ScanViewModel by viewModels {
         ViewModelFactory()
     }
+    private lateinit var progressDialog: ProgressDialog
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -73,6 +77,11 @@ class ScanActivity : AppCompatActivity() {
         binding.btnCamerax.setOnClickListener { startCameraX() }
         binding.btnGallery.setOnClickListener { startGallery() }
 
+        progressDialog = ProgressDialog(this)
+        progressDialog.setTitle(getString(R.string.memuat))
+        progressDialog.setMessage(getString(R.string.mohon_menunggu))
+        progressDialog.setCancelable(false)
+
         binding.btnScan.setOnClickListener{
 
             val file = getFile?.takeIf { it.exists() } ?: run {
@@ -80,31 +89,37 @@ class ScanActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            progressDialog.show()
+
             val reducedFile = reduceFileImage(file)
             val requestImageFile = reducedFile.asRequestBody(getString(R.string.media_type).toMediaTypeOrNull())
             val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
-                getString(R.string.photo),
-                reducedFile.name,
+                FILE,
+                file.name,
                 requestImageFile
             )
 
-            scanViewModel.getScanResult(imageMultipart).observe(this){result ->
+            scanViewModel.postScanResult(imageMultipart).observe(this){result ->
                 when (result) {
                     is Result.Success -> {
+                        progressDialog.dismiss()
                         val data = result.data
-                        if (data.result.isNotEmpty()) {
+                        if (data.result != null) {
                             val intent = Intent(this, HasilActivity::class.java)
-                            intent.putExtra("result", data.result[0])
+                            intent.putExtra(RESULT, data.result)
                             startActivity(intent)
-                        } else {
-
+                            finish()
                         }
+                        Toast.makeText(this,
+                            getString(R.string.scan_berhasil),
+                            Toast.LENGTH_LONG).show()
                     }
                     is Result.Error ->{
-
-                    }
-                    else ->{
-
+                        progressDialog.dismiss()
+                        Toast.makeText(
+                            this,
+                            getString(R.string.scan_tidak_berhasil),
+                            Toast.LENGTH_LONG).show()
                     }
                 }
             }
@@ -160,8 +175,9 @@ class ScanActivity : AppCompatActivity() {
 
     companion object {
         const val CAMERA_X_RESULT = 200
-
         private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
         private const val REQUEST_CODE_PERMISSIONS = 10
+        const val FILE = "file"
+        const val RESULT = "result"
     }
 }

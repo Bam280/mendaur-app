@@ -21,7 +21,7 @@ object MendaurApiConfig {
 
     fun getMendaurApiService(): MendaurApiService {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://maps.googleapis.com/")
+            .baseUrl("https://mendaur-app-c5tvvxbrdq-et.a.run.app/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(provideOkHttpClient())
             .build()

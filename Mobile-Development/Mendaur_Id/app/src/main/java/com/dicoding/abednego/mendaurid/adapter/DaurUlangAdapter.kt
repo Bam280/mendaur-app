@@ -21,8 +21,7 @@ class DaurUlangAdapter(private val data: List<MetodeItem>, private val activity:
                 if (position != RecyclerView.NO_POSITION) {
                     val item = data[position]
                     val intent = Intent(activity, DetailDaurUlangActivity::class.java).apply {
-                        // Sending data to DetailDaurUlangActivity
-                        putExtra("metode_item", item)
+                        putExtra(EXTRA_METODE_ITEM, item)
                     }
                     activity.startActivity(intent)
                 }
@@ -47,5 +46,9 @@ class DaurUlangAdapter(private val data: List<MetodeItem>, private val activity:
 
     override fun getItemCount(): Int {
         return data.size
+    }
+
+    companion object {
+        const val EXTRA_METODE_ITEM = "metode_item"
     }
 }
