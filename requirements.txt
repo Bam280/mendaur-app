@@ -1,0 +1,13 @@
+tensorflow==2.10
+Pillow
+tensorflow-hub
+fastapi
+uvicorn
+gunicorn
+numpy
+pandas
+google-cloud-storage
+google-cloud-firestore
+firebase-admin
+pydantic
+python-multipart
