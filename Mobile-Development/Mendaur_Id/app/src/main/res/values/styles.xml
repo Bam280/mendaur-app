@@ -17,7 +17,7 @@
     <style name="ProfileButton" parent="Widget.MaterialComponents.Button">
         <item name="cornerRadius">10dp</item>
         <item name="backgroundTint">@color/white</item>
-        <item name="strokeColor">@color/gray</item>
+        <item name="strokeColor">@color/green</item>
         <item name="strokeWidth">2dp</item>
     </style>
 

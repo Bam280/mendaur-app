@@ -17,6 +17,12 @@
         android:theme="@style/Theme.MendaurId"
         tools:targetApi="31">
         <activity
+            android:name=".ui.about.AboutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.report.ReportActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.splashscreen.SplashScreenActivity"
             android:exported="true"
             tools:ignore="LockedOrientationActivity">
@@ -25,7 +31,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".ui.postartikel.PostArtikelActivity"
@@ -55,12 +60,11 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDtLqiQMoVKFXCyq_fzo-v_PavAzrFyAPk" />
+            android:value="[YOUR API KEY]" />
 
         <activity
             android:name=".ui.maps.MapsActivity"
             android:exported="false"
-            android:label="@string/title_activity_maps"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
@@ -98,6 +102,7 @@
             android:name=".ui.main.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
+            tools:ignore="LockedOrientationActivity" />
     </application>
+
 </manifest>

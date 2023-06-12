@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -13,6 +14,7 @@ import com.dicoding.abednego.mendaurid.databinding.ActivityHasilBinding
 import com.dicoding.abednego.mendaurid.ui.daftardaurulang.DaurUlangActivity
 import com.dicoding.abednego.mendaurid.ui.maps.MapsActivity
 import com.dicoding.abednego.mendaurid.data.api.response.mendaur.Result
+import com.dicoding.abednego.mendaurid.ui.report.ReportActivity
 
 class HasilActivity : AppCompatActivity() {
 
@@ -77,6 +79,18 @@ class HasilActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.hasil_menu, menu)
+        val addMenuItem = menu.findItem(R.id.report)
+        addMenuItem.setOnMenuItemClickListener {
+            val intent = Intent(this, ReportActivity::class.java)
+            startActivity(intent)
+            true
+        }
+        return true
     }
 
     companion object {

@@ -113,7 +113,6 @@
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="20dp"
                 android:fontFamily="@font/montserrat_regular"
                 android:letterSpacing="0"
                 android:text="@string/btn_help"
@@ -125,10 +124,32 @@
                 app:iconGravity="textStart"
                 app:iconPadding="16dp"
                 app:iconTint="@color/green"
-                app:layout_constraintBottom_toTopOf="@+id/btn_sign_out"
                 app:layout_constraintEnd_toEndOf="@+id/btn_language"
                 app:layout_constraintStart_toStartOf="@+id/btn_language"
                 app:layout_constraintTop_toBottomOf="@+id/btn_language" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_about"
+                style="@style/ProfileButton"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:letterSpacing="0"
+                android:text="@string/btn_about"
+                android:textAlignment="viewStart"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:icon="@drawable/ic_about"
+                app:iconGravity="textStart"
+                app:iconPadding="16dp"
+                app:iconTint="@color/green"
+                app:layout_constraintBottom_toTopOf="@+id/btn_sign_out"
+                app:layout_constraintEnd_toEndOf="@+id/btn_help"
+                app:layout_constraintStart_toStartOf="@+id/btn_help"
+                app:layout_constraintTop_toBottomOf="@+id/btn_help" />
 
 
             <com.google.android.material.button.MaterialButton

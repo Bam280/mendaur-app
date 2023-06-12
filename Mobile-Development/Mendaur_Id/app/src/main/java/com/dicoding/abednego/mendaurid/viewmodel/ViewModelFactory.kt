@@ -8,6 +8,7 @@ import com.dicoding.abednego.mendaurid.ui.daftardaurulang.DaurUlangViewModel
 import com.dicoding.abednego.mendaurid.ui.home.HomeViewModel
 import com.dicoding.abednego.mendaurid.ui.maps.MapsViewModel
 import com.dicoding.abednego.mendaurid.ui.postartikel.PostArtikelViewModel
+import com.dicoding.abednego.mendaurid.ui.report.ReportViewModel
 import com.dicoding.abednego.mendaurid.ui.scan.ScanViewModel
 
 class ViewModelFactory : ViewModelProvider.Factory {
@@ -24,13 +25,15 @@ class ViewModelFactory : ViewModelProvider.Factory {
         } else if (modelClass.isAssignableFrom(DaftarArtikelViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
             return DaftarArtikelViewModel(Injection.provideRepository()) as T
-        }
-        else if (modelClass.isAssignableFrom(PostArtikelViewModel::class.java)) {
+        } else if (modelClass.isAssignableFrom(PostArtikelViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
             return PostArtikelViewModel(Injection.provideRepository()) as T
         }else if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
             return HomeViewModel(Injection.provideRepository()) as T
+        } else if (modelClass.isAssignableFrom(ReportViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return ReportViewModel(Injection.provideRepository()) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

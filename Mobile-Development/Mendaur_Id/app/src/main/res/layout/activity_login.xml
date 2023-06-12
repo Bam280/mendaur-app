@@ -14,7 +14,6 @@
         android:contentDescription="@string/logo_app"
         android:src="@drawable/logo_mendaur"
         android:scaleType="centerCrop"
-
         app:layout_constraintBottom_toTopOf="@+id/tv_selamat_datang"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

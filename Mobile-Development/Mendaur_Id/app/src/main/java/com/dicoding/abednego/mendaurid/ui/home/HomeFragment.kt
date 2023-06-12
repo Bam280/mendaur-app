@@ -78,8 +78,12 @@ class HomeFragment : Fragment() {
         binding.rvJenis.adapter = jenisAdapter
         binding.rvJenis.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
+        getArticle()
+    }
+
+    private fun getArticle() {
+        progressBar.visibility = View.VISIBLE
         homeViewModel.getArticles().observe(viewLifecycleOwner){ result ->
-            progressBar.visibility = View.VISIBLE
             when (result) {
                 is Result.Success -> {
                     progressBar.visibility = View.GONE
@@ -88,9 +92,6 @@ class HomeFragment : Fragment() {
                         val adapter = HomeArticleAdapter(mutableListOf(), requireContext())
                         adapter.setData(data.articles)
                         binding.rvHomeArticle.adapter = adapter
-                        Glide.with(this)
-                            .load(photoUrl)
-                            .into(binding.ivProfile)
                     } else {
                         binding.tvArtikelTidakDitemukan.visibility = View.VISIBLE
                     }

@@ -45,8 +45,8 @@ class DaurUlangActivity : AppCompatActivity() {
         adapter = DaurUlangAdapter(emptyList(), this)
         binding.rvDaurUlang.layoutManager = LinearLayoutManager(this)
 
+        progressBar.visibility = View.VISIBLE
         daurUlangViewModel.getListRecycle(jenis).observe(this) { result ->
-            progressBar.visibility = View.VISIBLE
             when (result) {
                 is Result.Success -> {
                     progressBar.visibility = View.GONE

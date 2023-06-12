@@ -1,9 +1,6 @@
 package com.dicoding.abednego.mendaurid.data.api.retrofit
 
-import com.dicoding.abednego.mendaurid.data.api.response.mendaur.ArticleResponse
-import com.dicoding.abednego.mendaurid.data.api.response.mendaur.PostResponse
-import com.dicoding.abednego.mendaurid.data.api.response.mendaur.RecycleResponse
-import com.dicoding.abednego.mendaurid.data.api.response.mendaur.ScanResponse
+import com.dicoding.abednego.mendaurid.data.api.response.mendaur.*
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.*
@@ -29,5 +26,14 @@ interface MendaurApiService {
         @Part("content") content : RequestBody,
         @Part file: MultipartBody.Part
     ): PostResponse
+
+    @Multipart
+    @POST("reports")
+    suspend fun postReports(
+        @Part("uid") uid : RequestBody,
+        @Part("title") title  : RequestBody,
+        @Part("content") content : RequestBody,
+        @Part file: MultipartBody.Part
+    ): ReportsResponse
 
 }

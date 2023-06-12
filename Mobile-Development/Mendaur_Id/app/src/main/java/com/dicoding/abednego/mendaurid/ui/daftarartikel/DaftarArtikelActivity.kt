@@ -42,8 +42,12 @@ class DaftarArtikelActivity : AppCompatActivity() {
 
         binding.rvArticle.layoutManager = LinearLayoutManager(this)
 
+        getArticle()
+    }
+
+    private fun getArticle() {
+        progressBar.visibility = View.VISIBLE
         daftarArtikelViewModel.getArticles().observe(this) { result ->
-            progressBar.visibility = View.VISIBLE
             when (result) {
                 is Result.Success -> {
                     progressBar.visibility = View.GONE
