@@ -1,33 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_background"
-    tools:context=".ui.postartikel.PostArtikelActivity">
+    android:background="@color/white_background">
 
-    <EditText
-        android:id="@+id/et_isi_artikel"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/edittext_background"
-        android:gravity="start"
-        android:inputType="textMultiLine"
-        android:autofillHints="textMultiLine"
-        android:lines="8"
-        android:maxLines="8"
-        android:minLines="8"
-        android:padding="8dp"
-        android:hint="@string/et_isi_artikel"
-        android:textColor="@color/black"
-        android:textColorHint="@color/gray"
-        android:textSize="16sp"
+        app:cardCornerRadius="15dp"
+        android:layout_margin="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.postartikel.PostArtikelActivity">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_profile"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/desc_iv_profile"
+                android:scaleType="centerCrop"
+                app:civ_border_color="@color/green"
+                app:civ_border_width="1dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/tv_judul_artikel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:text="@string/tv_judul_artikel"
+                android:textColor="@color/greenDark"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/iv_profile"
+                app:layout_constraintTop_toTopOf="@+id/iv_profile" />
+
+            <EditText
+                android:id="@+id/et_judul_artikel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:autofillHints="textMultiLine"
+                android:background="@drawable/edittext_background"
+                android:gravity="start"
+                android:hint="@string/et_judul_artikel"
+                android:inputType="textMultiLine"
+                android:maxLines="1"
+                android:padding="13dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_profile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_profile" />
+
+            <TextView
+                android:id="@+id/tv_isi_artkel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:text="@string/tv_isi_artikel"
+                android:textColor="@color/greenDark"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/iv_profile"
+                app:layout_constraintTop_toBottomOf="@+id/iv_profile" />
+
+            <EditText
+                android:id="@+id/et_isi_artikel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:autofillHints="textMultiLine"
+                android:background="@drawable/edittext_background"
+                android:gravity="start"
+                android:hint="@string/et_isi_artikel"
+                android:inputType="textMultiLine"
+                android:lines="10"
+                android:maxLines="10"
+                android:minLines="10"
+                android:padding="16dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_isi_artkel" />
+
+            <ImageView
+                android:id="@+id/iv_artikel"
+                android:layout_width="0dp"
+                android:layout_height="175dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/border"
+                android:contentDescription="@string/desc_iv_daur_ulang"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_upload"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_isi_artikel" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_send"
+                style="@style/GreenButton"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:letterSpacing="0"
+                android:text="@string/btn_send"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/iv_artikel"
+                app:layout_constraintStart_toStartOf="@+id/iv_artikel"
+                app:layout_constraintTop_toBottomOf="@+id/iv_artikel" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</ScrollView>

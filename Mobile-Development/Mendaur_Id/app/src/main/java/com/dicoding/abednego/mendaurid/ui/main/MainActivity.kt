@@ -5,10 +5,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.dicoding.abednego.mendaurid.ui.scan.ScanActivity
 import com.dicoding.abednego.mendaurid.R
 import com.dicoding.abednego.mendaurid.databinding.ActivityMainBinding
 import com.dicoding.abednego.mendaurid.ui.login.LoginActivity
+import com.dicoding.abednego.mendaurid.ui.scan.ScanActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
