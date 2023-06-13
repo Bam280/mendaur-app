@@ -56,15 +56,13 @@ dependencies {
     //firebase
     implementation 'com.google.firebase:firebase-auth-ktx:22.0.0'
     implementation 'com.google.android.gms:play-services-auth:20.5.0'
-    implementation 'com.facebook.android:facebook-login:latest.release'
-    implementation 'com.facebook.android:facebook-android-sdk:[8,9)'
 
     // Material Design
     implementation 'com.google.android.material:material:1.9.0'
 
     // Navigation
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.6.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.6.0'
 
     //api
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
@@ -79,10 +77,6 @@ dependencies {
 
     //Glide to get photo from url
     implementation 'com.github.bumptech.glide:glide:4.14.2'
-
-    //Navigation
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
 
     //Maps
     implementation 'com.google.android.gms:play-services-maps:18.1.0'
