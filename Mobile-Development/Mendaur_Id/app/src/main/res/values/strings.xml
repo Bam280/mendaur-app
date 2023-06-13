@@ -2,7 +2,7 @@
     <string name="app_name">Mendaur</string>
     <string name="logo_app">Mendaur app logo</string>
     <string name="tv_selamat_datang">Welcome</string>
-    <string name="tv_jargon_mendaur">Protect the Environment, Care for the Future: Start from Waste Management</string>
+    <string name="tv_jargon_mendaur">Take care of the environment, care for the future starting from yourself.</string>
     <string name="tv_masuk">Log in with Social Networks</string>
     <string name="login_google">Sign in with Google</string>
     <string name="menu_home">Home</string>
@@ -58,7 +58,7 @@
     <string name="send_email">Send Email</string>
     <string name="contact_mendaur_team">Would you like to contact the Mendaur Team?</string>
     <string name="no_gmail_app">Sorry… Gmail App Not Found</string>
-    <string name="API_KEY">[YOUR API KEY]</string>
+    <string name="API_KEY">[YOUR_API_KEY]</string>
     <string name="normal_type">Normal</string>
     <string name="satellite_type">Satellite</string>
     <string name="terrain_type">Terrain</string>
@@ -73,9 +73,9 @@
     <string name="desc_iv_icon_right">right icon image</string>
     <string name="tv_alat_dan_bahan">Tools and Materials:</string>
     <string name="tv_cara_membuat">How to make:</string>
-    <string name="et_isi_artikel">Insert article content here</string>
-    <string name="et_deskripsi_report">Enter the report description here..</string>
-    <string name="et_judul_artikel">Enter the title here..</string>
+    <string name="et_isi_artikel">Insert article content</string>
+    <string name="et_deskripsi_report">Enter the report description</string>
+    <string name="et_judul_artikel">Enter the title</string>
     <string name="selamat_sore">Good Afternoon</string>
     <string name="rating">Rating: </string>
     <string name="tv_akurasi">Accuracy: %s</string>
@@ -98,7 +98,7 @@
     <string name="empty_title">Title cannot be empty</string>
     <string name="empty_content">Article content must not be empty</string>
     <string name="title_post_artikel">Post Artikel</string>
-    <string name="tv_yuk_lihat">Let\'s see how to recycle your trash!</string>
+    <string name="tv_yuk_lihat">Let\'s see how to recycle \n your trash!</string>
     <string name="tv_jenis">jenis</string>
     <string name="memuat">Loading</string>
     <string name="mohon_menunggu">Please wait…</string>

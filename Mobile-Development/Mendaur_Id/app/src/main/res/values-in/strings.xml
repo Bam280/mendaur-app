@@ -2,7 +2,7 @@
     <string name="app_name">Mendaur</string>
     <string name="logo_app">Logo aplikasi mendaur</string>
     <string name="tv_selamat_datang">Selamat Datang</string>
-    <string name="tv_jargon_mendaur">Jaga Lingkungan, Peduli Masa Depan: Mulai dari Pengolahan Sampah</string>
+    <string name="tv_jargon_mendaur">Jaga Lingkungan, Peduli masa depan mulai dari Diri sendiri.</string>
     <string name="tv_masuk">Masuk dengan Jejaring Sosial</string>
     <string name="login_google">Masuk dengan Google</string>
     <string name="menu_home">Home</string>
@@ -58,7 +58,7 @@
     <string name="send_email">Kirim Email</string>
     <string name="contact_mendaur_team">Apakah anda ingin menghubungi Tim Mendaur?</string>
     <string name="no_gmail_app">Mohon Maaf… Aplikasi Gmail Tidak Ditemukan</string>
-    <string name="API_KEY">AIzaSyDPBWasvL5lsAwZpO5lTAox2H9f3sb-qkY</string>
+    <string name="API_KEY">[YOUR_API_KEY]</string>
     <string name="normal_type">Normal</string>
     <string name="satellite_type">Satellite</string>
     <string name="terrain_type">Terrain</string>
@@ -73,9 +73,9 @@
     <string name="desc_iv_icon_right">gambar icon right</string>
     <string name="tv_alat_dan_bahan">Alat dan Bahan:</string>
     <string name="tv_cara_membuat">Cara Membuat:</string>
-    <string name="et_isi_artikel">Masukkan isi artikel di sini..</string>
-    <string name="et_deskripsi_report">Masukkan deskripsi report di sini..</string>
-    <string name="et_judul_artikel">Masukkan judul di sini..</string>
+    <string name="et_isi_artikel">Masukkan isi artikel</string>
+    <string name="et_deskripsi_report">Masukkan deskripsi report</string>
+    <string name="et_judul_artikel">Masukkan judul</string>
     <string name="selamat_sore">Selamat Sore</string>
     <string name="rating">Rating: </string>
     <string name="tv_akurasi">Akurasi: %s</string>
