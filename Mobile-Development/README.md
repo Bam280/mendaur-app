@@ -33,8 +33,8 @@ Mendaur APK download link: <br/>
 ## Installation
 1. Make sure you have already installed Android Studio.
 2. Fork and Clone this Project
-   - Fork the repository. <br/> <img src="assets/clone-screenshot.jpg"  width="60%" height="30%">
-   - Clone the repository. <br/> <img src="assets/clone-screenshot.jpg"  width="60%" height="30%">
+   - Fork the repository. <br/> <img src="assets/clone-screenshot.jpg"   width="30%" height="30%">
+   - Clone the repository. <br/> <img src="assets/clone-screenshot.jpg"   width="30%" height="30%">
 3. Get your Maps API Token on this [link](https://console.cloud.google.com/).
 4. Paste your Maps API Token to [YOUR_API_KEY] on
    - AndroidManifest.xml <br/> 
