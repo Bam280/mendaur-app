@@ -13,3 +13,5 @@ To run tests, run the following command
 
 
 go to browser ` http://127.0.0.1:8000/docs ` 
+
+~thankyou~
