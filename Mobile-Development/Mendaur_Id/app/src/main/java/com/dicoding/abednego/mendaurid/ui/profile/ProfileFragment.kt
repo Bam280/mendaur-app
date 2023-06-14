@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.dicoding.abednego.mendaurid.R
 import com.dicoding.abednego.mendaurid.databinding.FragmentProfileBinding
+import com.dicoding.abednego.mendaurid.ui.about.AboutActivity
 import com.dicoding.abednego.mendaurid.ui.login.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 
@@ -46,7 +47,7 @@ class ProfileFragment : Fragment() {
 
         binding.tvUsername.text = userName
         binding.tvEmail.text = emailUser
-        binding.btnSignOut.setOnClickListener{
+        binding.btnSignOut.setOnClickListener {
             AlertDialog.Builder(requireContext())
                 .setTitle(getString(R.string.confirmation))
                 .setMessage(getString(R.string.are_you_sure_log_out))
@@ -60,6 +61,10 @@ class ProfileFragment : Fragment() {
         binding.btnLanguage.setOnClickListener {
             startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
         }
+        binding.btnAbout.setOnClickListener{
+            val intent = Intent(requireContext(), AboutActivity::class.java)
+            startActivity(intent)
+        }
         binding.btnHelp.setOnClickListener {
             val emailIntent = Intent(Intent.ACTION_SEND).apply {
                 type = "text/plain"
@@ -68,14 +73,29 @@ class ProfileFragment : Fragment() {
                 putExtra(Intent.EXTRA_TEXT, getString(R.string.email_body))
             }
 
+            val packageManager = requireContext().packageManager
+            val activities = packageManager.queryIntentActivities(emailIntent, 0)
+
             val alertDialogBuilder = AlertDialog.Builder(requireContext())
                 .setTitle(getString(R.string.send_email))
                 .setMessage(getString(R.string.contact_mendaur_team))
                 .setPositiveButton(getString(R.string.yes)) { _, _ ->
-                    try {
-                        startActivity(emailIntent)
-                    } catch (ex: ActivityNotFoundException) {
-                        Toast.makeText(requireContext(), getString(R.string.no_gmail_app), Toast.LENGTH_SHORT).show()
+                    if (activities.isNotEmpty()) {
+                        try {
+                            startActivity(emailIntent)
+                        } catch (ex: ActivityNotFoundException) {
+                            Toast.makeText(
+                                requireContext(),
+                                getString(R.string.no_gmail_app),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    } else {
+                        Toast.makeText(
+                            requireContext(),
+                            getString(R.string.no_gmail_app),
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
                 .setNegativeButton(getString(R.string.no)) { dialog, _ ->

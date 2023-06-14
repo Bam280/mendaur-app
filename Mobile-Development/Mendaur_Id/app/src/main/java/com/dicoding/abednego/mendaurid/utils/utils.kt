@@ -1,4 +1,4 @@
-package com.dicoding.abednego.mendaurid.ui.scan
+package com.dicoding.abednego.mendaurid.utils
 
 import android.app.Application
 import android.content.ContentResolver

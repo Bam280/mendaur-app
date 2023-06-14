@@ -9,6 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         tools:context=".ui.scan.ScanActivity">
 
         <TextView
@@ -38,31 +39,50 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_masukan_foto" />
 
+        <TextView
+            android:id="@+id/tv_pastikan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/tv_pastikan"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/previewImageView" />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_camerax"
             style="@style/WhiteButton"
-            android:layout_width="170dp"
+            android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
             android:fontFamily="@font/montserrat_extrabold"
             android:letterSpacing="0"
             android:text="@string/btn_camerax"
             android:textColor="@color/green"
             android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/btn_gallery"
             app:layout_constraintStart_toStartOf="@+id/btn_scan"
-            app:layout_constraintTop_toBottomOf="@+id/previewImageView" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_pastikan" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_gallery"
             style="@style/WhiteButton"
             android:layout_width="170dp"
             android:layout_height="60dp"
+            android:layout_marginStart="10dp"
             android:fontFamily="@font/montserrat_extrabold"
             android:letterSpacing="0"
             android:text="@string/btn_gallery"
             android:textColor="@color/green"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/btn_scan"
+            app:layout_constraintStart_toEndOf="@+id/btn_camerax"
             app:layout_constraintTop_toTopOf="@+id/btn_camerax" />
 
         <com.google.android.material.button.MaterialButton
@@ -71,7 +91,7 @@
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
             android:fontFamily="@font/montserrat_extrabold"
@@ -82,7 +102,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_camerax" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_gallery" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

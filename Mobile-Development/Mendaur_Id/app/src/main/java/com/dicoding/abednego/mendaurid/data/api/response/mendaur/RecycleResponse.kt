@@ -1,6 +1,8 @@
 package com.dicoding.abednego.mendaurid.data.api.response.mendaur
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 data class RecycleResponse(
 
@@ -17,7 +19,7 @@ data class RecycleResponse(
 data class ListRecycle(
 
 	@field:SerializedName("metode")
-	val metode: List<MetodeItem?>? = null,
+	val metode: List<MetodeItem>,
 
 	@field:SerializedName("jenis")
 	val jenis: String? = null,
@@ -26,6 +28,7 @@ data class ListRecycle(
 	val totalMethods: Int? = null
 )
 
+@Parcelize
 data class MetodeItem(
 
 	@field:SerializedName("langkah")
@@ -39,4 +42,5 @@ data class MetodeItem(
 
 	@field:SerializedName("alat_dan_bahan")
 	val alatDanBahan: List<String?>? = null
-)
+) : Parcelable
+

@@ -1,6 +1,8 @@
 package com.dicoding.abednego.mendaurid.data.api.response.mendaur
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 data class ScanResponse(
 
@@ -14,14 +16,14 @@ data class ScanResponse(
 	val message: String? = null
 )
 
+@Parcelize
 data class Result(
-
 	@field:SerializedName("jenis")
-	val jenis: String? = null,
+	val jenis: String,
 
 	@field:SerializedName("akurasi")
-	val akurasi: String? = null,
+	val akurasi: String,
 
 	@field:SerializedName("tipe")
-	val tipe: String? = null
-)
+	val tipe: String
+) : Parcelable

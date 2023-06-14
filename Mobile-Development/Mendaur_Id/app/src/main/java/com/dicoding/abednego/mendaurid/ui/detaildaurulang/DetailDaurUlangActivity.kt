@@ -2,31 +2,61 @@ package com.dicoding.abednego.mendaurid.ui.detaildaurulang
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
+import android.view.MenuItem
+import com.bumptech.glide.Glide
 import com.dicoding.abednego.mendaurid.R
+import com.dicoding.abednego.mendaurid.data.api.response.mendaur.MetodeItem
+import com.dicoding.abednego.mendaurid.databinding.ActivityDetailDaurUlangBinding
 
 class DetailDaurUlangActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityDetailDaurUlangBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail_daur_ulang)
+        binding = ActivityDetailDaurUlangBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val tvDescription: TextView = findViewById(R.id.tv_daftar_cara_membuat)
-        val stringBuilder = StringBuilder()
+        supportActionBar?.title = getString(R.string.title_detail_daur_ulang)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val langkah = listOf(
-            "Potong terlebih dahulu botol menjadi dua bagian, bagian tutup botol sebaiknya dipotong juga.",
-            "Sekarang potong bagian ujung sendok plastik yang cekung.",
-            "Gunakan potongan ujung sendok plastik untuk mencetak potongan dari botol plastik yang sudah dipotong menjadi dua bagian.",
-            "Cetak sebanyak mungkin sampai sekiranya cukup untuk dibuat hiasan lampu.",
-            "Mulailah merangkai potongan cetakan tersebut dengan rapi tanpa diberi lem.",
-            "Jika rangkaian sudah benar dan sesuai keinginan, mulailah memberinya lem sedikit demi sedikit dan rangkai satu sama lain sampai membentuk seperti lampu hias.",
-            "Agar tampilan lebih menarik dan berwarna gunakan kuas untuk mewarnai kerajinan dari sampah plastik tersebut menggunakan cat warna yang telah ditetapkan."
-        )
+        val metodeItem = intent.getParcelableExtra<MetodeItem>("metode_item")
+        val langkah = metodeItem?.langkah ?: listOf()
+        val alatDanBahan = metodeItem?.alatDanBahan?: listOf()
 
-        for ((index, step) in langkah.withIndex()) {
-            stringBuilder.append("${index + 1}. $step\n")
+        val langkahStringBuilder = createFormattedStringBuilder(langkah)
+        val alatDanBahanStringBuilder = createFormattedStringBuilder(alatDanBahan)
+
+        val langkahText = langkahStringBuilder.toString()
+        val alatDanBahanText = alatDanBahanStringBuilder.toString()
+
+        if (metodeItem != null) {
+            binding.tvJudulDaurUlang.text = metodeItem.judul
+            Glide.with(this).load(metodeItem.urlGambar).into(binding.ivDaurUlang)
+            binding.tvDaftarAlatDanBahan.text = alatDanBahanText
+            binding.tvDaftarCaraMembuat.text = langkahText
         }
+    }
 
-        tvDescription.text = stringBuilder.toString()
+    private fun createFormattedStringBuilder(items: List<String?>): StringBuilder {
+        val stringBuilder = StringBuilder()
+        val lastIndex = items.lastIndex
+        for ((index, item) in items.withIndex()) {
+            stringBuilder.append("${index + 1}. $item")
+            if (index != lastIndex) {
+                stringBuilder.append("\n")
+            }
+        }
+        return stringBuilder
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

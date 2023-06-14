@@ -4,22 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white_background"
     tools:context=".ui.detaildaurulang.DetailDaurUlangActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white_background"
-        android:padding="20dp">
+        android:layout_height="wrap_content">
 
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:cardCornerRadius="10dp"
+            android:layout_margin="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@color/white">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -37,7 +38,7 @@
                     android:maxLines="2"
                     android:text="@string/tv_judul_daur_ulang"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
+                    android:textColor="@color/greenDark"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -50,6 +51,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="20dp"
+                    android:scaleType="centerCrop"
                     android:contentDescription="@string/desc_iv_daur_ulang"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +66,7 @@
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/montserrat_extrabold"
                     android:text="@string/tv_alat_dan_bahan"
-                    android:textColor="@color/black"
+                    android:textColor="@color/greenDark"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/iv_daur_ulang" />
@@ -91,7 +93,7 @@
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/montserrat_extrabold"
                     android:text="@string/tv_cara_membuat"
-                    android:textColor="@color/black"
+                    android:textColor="@color/greenDark"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="@+id/tv_daftar_alat_dan_bahan"
                     app:layout_constraintTop_toBottomOf="@+id/tv_daftar_alat_dan_bahan" />

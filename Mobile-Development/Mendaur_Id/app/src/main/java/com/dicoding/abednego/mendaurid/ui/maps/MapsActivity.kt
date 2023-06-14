@@ -41,7 +41,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         ViewModelFactory()
     }
     private var radius = 5000
-    private var keyword: String  = "Bank Sampah"
+    private var keyword: String  = KEYWORD
     private lateinit var progressBar: ProgressBar
 
 
@@ -116,11 +116,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                                 val latLng = LatLng(geometry.location.lat ?: 0.0, geometry.location.lng ?: 0.0)
                                 val markerOptions = MarkerOptions()
                                     .position(latLng).title(mapItem.name)
-                                    .snippet(getString(R.string.rating)+mapItem.rating.toString())
+                                    .snippet("${getString(R.string.rating)} ${mapItem.rating.toString()}")
                                 mMap.addMarker(markerOptions)
                             }
                             else{
-                                Toast.makeText(this, "Bank sampah tidak ditemukan", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, getString(R.string.bank_sampah_tidak_ditemukan), Toast.LENGTH_SHORT).show()
                             }
                         }
                         val builder = LatLngBounds.Builder()
@@ -131,18 +131,17 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                                 builder.include(latLng)
                             }
                         }
-
                         val bounds = builder.build()
                         val padding = 50
                         val cameraUpdate = CameraUpdateFactory.newLatLngBounds(bounds, padding)
                         mMap.animateCamera(cameraUpdate)
-                    } else {
-                        Toast.makeText(this, "Bank sampah tidak ditemukan", Toast.LENGTH_SHORT).show()
+                    } else if (mapsResponse.status == ZEROSTATUS ){
+                        Toast.makeText(this, getString(R.string.bank_sampah_tidak_ditemukan), Toast.LENGTH_SHORT).show()
                     }
                 }
                 else -> {
                     progressBar.visibility = View.GONE
-                    Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.terjadi_kesalahan), Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -197,5 +196,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     companion object {
         private const val REQUEST_CODE_PERMISSIONS = 10
         private const val TAG = "MapsActivity"
+        private const val KEYWORD = "Bank Sampah"
+        private const val ZEROSTATUS = "ZERO_RESULTS"
     }
 }

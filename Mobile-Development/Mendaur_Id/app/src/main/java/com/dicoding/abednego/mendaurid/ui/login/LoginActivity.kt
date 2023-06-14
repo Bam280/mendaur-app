@@ -3,6 +3,7 @@ package com.dicoding.abednego.mendaurid.ui.login
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -15,18 +16,19 @@ import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.abednego.mendaurid.R
 import com.dicoding.abednego.mendaurid.databinding.ActivityLoginBinding
 import com.dicoding.abednego.mendaurid.ui.main.MainActivity
-import com.facebook.*
-import com.facebook.login.LoginManager
-import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
-import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.auth.*
+import com.google.firebase.auth.AuthCredential
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.SetOptions
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 
@@ -35,9 +37,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
-    private lateinit var callbackManager: CallbackManager
     private lateinit var progressBar: ProgressBar
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,13 +59,9 @@ class LoginActivity : AppCompatActivity() {
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         auth = Firebase.auth
-        callbackManager = CallbackManager.Factory.create()
 
         binding.btnLoginGoogle.setOnClickListener {
             googleLogIn()
-        }
-        binding.btnLoginFacebook.setOnClickListener{
-            facebookLogIn()
         }
         playAnimation()
     }
@@ -83,31 +79,42 @@ class LoginActivity : AppCompatActivity() {
             try {
                 val account: GoogleSignInAccount = task.getResult(ApiException::class.java)!!
                 Log.d(TAG, "firebaseAuthWithGoogle:" + account.id)
+                val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.putString("account_id", account.id)
+                editor.apply()
+                val db = Firebase.firestore
+                val data = hashMapOf(
+                    UID to account.id,
+                    NAME to account.displayName,
+                    PHOTO_URL to account.photoUrl
+                )
+
+                val documentRef = db.collection("users").document(account.id.toString())
+                documentRef.get()
+                    .addOnSuccessListener { documentSnapshot ->
+                        if (documentSnapshot.exists()) {
+                            Log.d(TAG, "Data already exists in the database")
+                        } else {
+                            documentRef.set(data, SetOptions.merge())
+                                .addOnSuccessListener {
+                                    Log.d(TAG, "Data added to the database")
+                                    firebaseAuthWithGoogle(account.idToken!!)
+                                }
+                                .addOnFailureListener { e ->
+                                    Log.w(TAG, "Failed to add data to the database", e)
+                                }
+                        }
+                    }
+                    .addOnFailureListener { e ->
+                        Log.w(TAG, "Failed to retrieve data from the database", e)
+                    }
                 firebaseAuthWithGoogle(account.idToken!!)
             } catch (e: ApiException) {
-
+                Toast.makeText(this, getString(R.string.gagal_login), Toast.LENGTH_SHORT).show()
                 Log.w(TAG, "Google sign in failed", e)
             }
         }
-    }
-
-    private fun facebookLogIn() {
-        LoginManager.getInstance().logInWithReadPermissions(this, listOf("email", "public_profile"))
-        LoginManager.getInstance().registerCallback(callbackManager, object :
-            FacebookCallback<LoginResult> {
-            override fun onSuccess(result: LoginResult) {
-                Log.d(TAG, "facebook:onSuccess:${result.accessToken}")
-                handleFacebookAccessToken(result.accessToken)
-            }
-
-            override fun onCancel() {
-                Log.d(TAG, "facebook:onCancel")
-            }
-
-            override fun onError(error: FacebookException) {
-                Log.d(TAG, "facebook:onError", error)
-            }
-        })
     }
 
     private fun firebaseAuthWithGoogle(idToken: String) {
@@ -119,45 +126,15 @@ class LoginActivity : AppCompatActivity() {
                     progressBar.visibility = View.GONE
                     Log.d(TAG, "signInWithCredential:success")
                     val user: FirebaseUser? = auth.currentUser
-                    Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.berhasil_login), Toast.LENGTH_SHORT).show()
                     updateUI(user)
                 } else {
                     progressBar.visibility = View.GONE
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    Toast.makeText(this, "Gagal untuk login", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.gagal_login), Toast.LENGTH_SHORT).show()
                     updateUI(null)
                 }
             }
-    }
-
-    private fun handleFacebookAccessToken(token: AccessToken) {
-        progressBar.visibility = View.VISIBLE
-        Log.d(TAG, "handleFacebookAccessToken:$token")
-        val credential = FacebookAuthProvider.getCredential(token.token)
-        auth.signInWithCredential(credential)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    progressBar.visibility = View.GONE
-                    Log.d(TAG, "signInWithCredential:success")
-                    val user = auth.currentUser
-                    updateUI(user)
-                    Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
-
-                } else {
-                    progressBar.visibility = View.GONE
-                    Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    Toast.makeText(this, "Gagal untuk login", Toast.LENGTH_SHORT).show()
-                    updateUI(null)
-                }
-            }
-    }
-
-    @Suppress("DEPRECATION")
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        callbackManager.onActivityResult(requestCode, resultCode, data)
     }
 
     private fun updateUI(currentUser: FirebaseUser?) {
@@ -184,15 +161,13 @@ class LoginActivity : AppCompatActivity() {
         val jargon = ObjectAnimator.ofFloat(binding.tvJargon, View.ALPHA, 1f).setDuration(500)
         val masuk = ObjectAnimator.ofFloat(binding.tvMasuk, View.ALPHA, 1f).setDuration(500)
         val btnGoogleButton = ObjectAnimator.ofFloat(binding.btnLoginGoogle, View.ALPHA, 1f).setDuration(500)
-        val btnFacebookButton = ObjectAnimator.ofFloat(binding.btnLoginFacebook, View.ALPHA, 1f).setDuration(500)
 
         AnimatorSet().apply {
             playSequentially(
                 welcome,
                 jargon,
                 masuk,
-                btnGoogleButton,
-                btnFacebookButton
+                btnGoogleButton
             )
             startDelay = 500
         }.start()
@@ -200,5 +175,8 @@ class LoginActivity : AppCompatActivity() {
 
     companion object {
         private const val TAG = "LoginActivity"
+        const val UID = "userid"
+        const val NAME = "name"
+        const val PHOTO_URL = "photourl"
     }
 }
