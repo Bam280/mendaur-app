@@ -1,6 +1,6 @@
 # Mobile Development
 
-## Meet Our Mobike Development Team!
+## Meet Our Mobile Development Team!
 | ID | Name | Scope of Tasks  |
 | ----------| --- | ---------- |
 | A304DSX1096 | Abednego Christianyoel Rumagit | Develop Mendaur App |
