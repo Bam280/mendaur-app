@@ -1,4 +1,6 @@
-<center><img src="assets/logo_app_mendaur.png"  width="50%" height="50%"></center>
+<p align="center">
+  <img src="assets/logo_app_mendaur.png"  width="50%" height="50%">
+</p>
 
 # MenDaur: Bangkit C23-PR537 Product Capstone Project
 Hello, Everyone! We are from C23-PR537 team, consisting of 1 Mobile Development, 2 Cloud Computing, and 3 Machine Learning student. Here is our repository for MenDaur project. MenDaur is a Bangkit 2023 capstone project with the theme of sustainable living by utilizing FastAPI as the backend and Android (Kotlin) as the frontend.
@@ -17,10 +19,12 @@ Hello, Everyone! We are from C23-PR537 team, consisting of 1 Mobile Development,
 Mendaur is an application that can detect organic and inorganic garbage and provides recycling advice. Mendaur's advanced waste detection system helps clients choose recycling options. Mendaur recycles non-organic waste and locates convenient waste disposal locations. This tool helps users identify disposal centers, promoting waste management and lowering environmental effects.
 
 ### How does this app work?
-<img src="assets/sign in_mendaur.gif" alt="Logo" width="250" height="550">&nbsp; &nbsp;
-<img src="assets/detection_mendaur.gif" alt="Logo" width="250" height="550">&nbsp; &nbsp;
-<img src="assets/recomendation_mendaur.gif" alt="Logo" width="250" height="550">&nbsp; &nbsp;
-<img src="assets/articles_mendaur.gif" alt="Logo" width="250" height="550">&nbsp; &nbsp;
+<p align="center">
+    <img src="assets/sign in_mendaur.gif" alt="Logo" width="250" height="550">&nbsp; &nbsp;
+    <img src="assets/detection_mendaur.gif" alt="Logo" width="250" height="550">&nbsp; &nbsp;
+    <img src="assets/recomendation_mendaur.gif" alt="Logo" width="250" height="550">&nbsp; &nbsp;
+    <img src="assets/articles_mendaur.gif" alt="Logo" width="250" height="550">&nbsp; &nbsp;
+</p>
 
 ### What happened behind this app?
 <center><img src="assets/logo_app_mendaur.png"></center>
