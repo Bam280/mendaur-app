@@ -27,7 +27,9 @@ Mendaur is an application that can detect organic and inorganic garbage and prov
 </p>
 
 ### What happened behind this app?
-<center><img src="assets/logo_app_mendaur.png"></center>
+<p align="center">
+  <img src="Mobile-Development/assets/architecture.png">
+</p>
 
 ### Try out our app!
 If you want to know more about this app, you can download it [here](https://drive.google.com/file/d/16uyQGY4ysvd5p9uPRLPdoDVXqxMaI4SI/view?usp=sharing).
@@ -44,9 +46,9 @@ You can access our API Documentation on the following links: [Deployed API docs]
 ### UI/UX Design
 You can access our prototype design on the following links: [UI/UX Design](https://www.figma.com/file/7zdAOKZkXlpJuOeCJTVDjJ/UI%2FUX-MenDaur?type=design&node-id=1%3A2&t=4PGFJPzENDeVDOEZ-1)
 
-### Repository (check it out if you want to replicate our steps)
-| Learning Path  | Branch Name | Branch Link |
+### Repository (check out our each path's folder if you want to replicate our steps)
+| Learning Path  | Folder Name | Folder Link |
 | ---------- | ----------- | ----------- |
-| Mobile Development | mobile-development | [MD Branch](https://github.com/Bam280/mendaur-app/tree/mobile-development) |
-| Cloud Computing | cloud-computing | [CC Branch](https://github.com/Bam280/mendaur-app/tree/cloud-computing) |
-| Machine Learning | machine-learning | [ML Branch](https://github.com/Bam280/mendaur-app/tree/machine-learning) |
+| Mobile Development | Mobile-Development | [MD Folder](https://github.com/Bam280/mendaur-app/tree/main/Mobile-Development) |
+| Cloud Computing | Cloud Computing | [CC Folder](https://github.com/Bam280/mendaur-app/tree/main/Cloud%20Computing) |
+| Machine Learning | Machine Learning | [ML Folder](https://github.com/Bam280/mendaur-app/tree/main/Machine%20Learning) |
