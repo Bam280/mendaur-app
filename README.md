@@ -1,17 +1,34 @@
 
-# Project Tutorial
+# Cloud Computing
+## Meet Our Cloud Computing Team!
+| ID | Name | Scope of Tasks  |
+| ----------| --- | ---------- |
+| C172DKX4165 | Anden Nirboyo | Develope Backend service and setup GCP |
+| C304DSX1945 | Rivardi  | Develope Backend service and setup GCP |
 
-Clone this repo
-
-## Running Tests
-
-To run tests, run the following command
-
-```bash
-  uvicorn main:app --reload
-```
+## How to clone
+- `git clone` this repository
+- `pip install requests` for install library
+- `path/to/service-account.json` Ensure that you replace with the actual path to your service account credentials file
 
 
-go to browser ` http://127.0.0.1:8000/docs ` 
+## Libraries and Dependecies Used
+- FastAPI
+- tensorflow `2.10`
+- Pillow
+- tensorflow-hub
+- uvicorn
+- gunicorn
+- numpy
+- pandas
+- google-cloud-storage
+- google-cloud-firestore
+- firebase-admin
+- pydantic
+- python-multipart
+- BytesIO
+- Union
 
-~thankyou~
+## Documentation
+Go to browser `{link}/docs`
+
